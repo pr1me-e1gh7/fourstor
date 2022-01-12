@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!--  Montserrat Font Family src  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
-<!--  CSS srcs  -->
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
+<!-- Foundation Compressed Web Link CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+<!-- Our CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
 <!--  Website Title  -->
   <title>fourSTOR | Your Small Shop Search Site</title>
 </head>
@@ -19,6 +20,18 @@
 <body>
   <header>
     <h1>Hello World</h1>
+    <nav>
+        <div class="search-container float-left">
+            <form action="search-container">
+                <input type="text" placeholder="Shop title..." name="search">
+                <button type="submit">🔎</button>
+            </form>
+        <ul>
+            <li><a href="#whatisfourstor">What is fourSTOR? /</a></li>
+            <li><a href="#aboutus">About Us /</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
   </header>
 
   <main>
@@ -31,11 +44,10 @@
   </main>
 
   <footer>
-
+      <h4>Powered By Yelp! and Google Maps | Copyright ©2022</h4>
   </footer>
 
   <script src="./assets/js/script.js"></script>
 </body>
-
 
 </html>
