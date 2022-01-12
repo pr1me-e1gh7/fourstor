@@ -10,17 +10,18 @@
 
 
 
-// === Event Listeners === \\
-
-
-
 // === Functions === \\
 
 
 
 // === Init === \\
 init = () => {
-
+    
 };
+
+// === Event Listeners === \\
+
+
+
 
 init();
