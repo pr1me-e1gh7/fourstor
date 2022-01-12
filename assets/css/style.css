@@ -1,3 +1,8 @@
+.search-card {
+    border: 1px solid blue;
+    height: 250px;
+}
+
 .main-search {
     border: solid;
     position: relative;
@@ -22,3 +27,4 @@
     border-top:2.5px solid;
     border-left:2.5px solid;
 }
+
