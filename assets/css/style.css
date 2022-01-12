@@ -1,0 +1,43 @@
+:root {
+  --navBkgd: #5bd3ff;
+  --navText:#1779ba;
+  --navHoverText:white;
+  --buttonHoverText: white;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+    color: var(--buttonHoverText);
+}
+
+nav a {
+  color: var(--navText);
+  text-decoration: none;
+}      
+
+nav a:hover {
+color: var(--navHoverText);
+}
+
+nav img {
+    left: 50%;
+    top: 15%;
+    margin-left: -75px;
+    max-height: 2rem;
+    position: absolute;
+}
+
+nav ul {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  list-style-type: none;
+  min-width: 300px;
+}      
+
+nav ul li {
+  padding: 8px;
+  align-items: center;
+}

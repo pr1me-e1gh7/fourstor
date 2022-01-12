@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -21,16 +21,27 @@
   <header>
     <h1>Hello World</h1>
     <nav>
-        <div class="search-container float-left">
-            <form action="search-container">
-                <input type="text" placeholder="Shop title..." name="search">
-                <button type="submit">🔎</button>
-            </form>
-        <ul>
-            <li><a href="#whatisfourstor">What is fourSTOR? /</a></li>
-            <li><a href="#aboutus">About Us /</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="top-bar" style="background-color:var(--navBkgd)">
+            <div class="top-bar-left">
+                <ul class="menu" style="background-color:var(--navBkgd)">
+                    <li><input type="text" placeholder="Shop title..." name="search"></li>
+                    <!-- <li><button type="submit" class="button" style="margin-left: -12px;">🔎</button></li> -->
+                    <li><button type="submit" class="button"style="margin-left: -12px;">🌎</button></li>
+                </ul>
+            </div>
+            <div>
+                <div class="nav-img">
+                    <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <ul class="top-bar ul" style="background-color:var(--navBkgd);padding:8px">
+                    <li><a href="#whatisfourstor">What is fourSTOR?</a></li>
+                    <li><a href="#aboutus">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
   </header>
 
