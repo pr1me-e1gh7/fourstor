@@ -1,13 +1,13 @@
 // === DOM Elements === \\
 
 
-
 // === Global Variables === \\
-let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
-let gooogleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
-let googleApiCoords = "&q="
 
 // === API's === \\
+// ==> Google Api <== \\
+const googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
+const gooogleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
+let googleApiCoords = "&q="
 
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
@@ -33,6 +33,9 @@ fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocat
 
 // === Functions === \\
 
+createGoogleEl = () => {
+    
+}
 
 
 // === Init === \\
