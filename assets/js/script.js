@@ -5,7 +5,7 @@
 // === Global Variables === \\
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
 let gooogleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
-let googleApiCoords = "&q="
+let googleApiParams = "&q="
 
 // === API's === \\
 
@@ -32,6 +32,10 @@ fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocat
     })
 
 // === Functions === \\
+generateGoogleLink = () => {
+    let googleBusinessName = businessName.replace(" ","+")
+    let googleLocation 
+}
 
 
 
