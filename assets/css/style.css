@@ -28,7 +28,7 @@ body {
   list-style-type: none;
 }
 
-.grid-container {
+.grid-container-UI {
   height: 500px;
   color: var(--mainText);
   max-width: 500px;
