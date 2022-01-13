@@ -11,8 +11,7 @@ let googleApiCoords = "&q="
 
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
-const yelpApiKeyAlex = "mdfoGE2ADA2HAGF1jXqSPCUPMlv8hHM45fs7eLpYp5yFwNZDlmtE6Swj0GX7k1jvwo1MYecnKRHZ9_nXhScJgG7dhGjyjMS-HfMpLh62OdG4X3hO7YA0FS6d5fXeYXYx";
-const yelpApiKeyThiago;
+const yelpApiKey = "mdfoGE2ADA2HAGF1jXqSPCUPMlv8hHM45fs7eLpYp5yFwNZDlmtE6Swj0GX7k1jvwo1MYecnKRHZ9_nXhScJgG7dhGjyjMS-HfMpLh62OdG4X3hO7YA0FS6d5fXeYXYx";
 // vvv these are default parameters that will be dynamically updated via user input on the html page.
 let yelpApiLocation = "Orlando";
 let yelpApiCategory = "coffee";
@@ -30,28 +29,10 @@ fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocat
     })
     .then(function(data) {
         console.log(data);
-        let businessName = data.businesses[0].name;
-        let businessRating = data.businesses[0].rating;
-        let businessReviews = data.businesses[0].review_count;
-        let businessImageLink = data.businesses[0].image_url;
-        let businessUrl = data.businesses[0].url;
-        let businessCoords = data.businesses[0].coordinates;
-
-        renderGoogleMap(businessCoords)
-
-        console.log(businessImageLink);
-        console.log(businessReviews);
-        console.log(businessRating);
-        console.log(businessName);
-        console.log(businessUrl);
-        console.log(businessCoords);
     })
 
 // === Functions === \\
-renderGoogleMap = (googleLocation) => {
-    let long = googleLocation.longitude;
-    console.log('this is in the function', long);
-}
+
 
 
 // === Init === \\
