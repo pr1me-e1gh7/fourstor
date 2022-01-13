@@ -6,11 +6,11 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .button {
-    color: var(--buttonHoverText);
+  color: var(--buttonHoverText);
 }
 
 nav a {
@@ -19,33 +19,37 @@ nav a {
 }      
 
 nav a:hover {
-color: var(--navHoverText);
+  color: var(--navHoverText);
 }
 
 nav img {
-    left: 50%;
-    top: 15%;
-    margin-left: -75px;
-    max-height: 2rem;
-    position: absolute;
+  left: 50%;
+  margin-left: -75px;
+  max-height: 2rem;
+  position: absolute;
+  top: 22px;
 }
 
 nav ul {
   display: block;
   font-family: 'Montserrat', sans-serif;
   list-style-type: none;
+  margin-bottom: 0;
+  margin-left: 0;
   min-width: 300px;
 }      
 
 nav ul li {
-  padding: 8px;
   align-items: center;
+  padding: 8px;
 }
 
 .main-search {
-    border: solid;
-    position: relative;
+  border: solid;
+  position: relative;
 }
+
+.maincard
 
 .foodEl {
     border-right:2.5px  solid;
