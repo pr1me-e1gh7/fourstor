@@ -13,6 +13,18 @@ body {
   color: var(--buttonHoverText);
 }
 
+.footer-bar {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footer-bar h4 {
+  color: var(--navText);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  list-style-type: none;
+}
+
 nav a {
   color: var(--navText);
   text-decoration: none;
@@ -44,12 +56,12 @@ nav ul li {
   padding: 8px;
 }
 
+/* David's CSS^ */
+
 .main-search {
   border: solid;
   position: relative;
 }
-
-.maincard
 
 .foodEl {
     border-right:2.5px  solid;
