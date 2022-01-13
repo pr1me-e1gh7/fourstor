@@ -17,7 +17,8 @@ let yelpApiLocation = "fairfax";
 let yelpApiCategory = "zoos";
 
 // ! To gain access to data, go to herokuapp and request access
-fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
+fetchBusiness = () => {
+    fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
     headers: {
         'Authorization': `Bearer ${yelpApiKey}`,
         'Cache-Control': 'no-cache', 
@@ -30,21 +31,24 @@ fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocat
         console.log(data);
         renderCards(data);
     })
+};
 
 // === Functions === \\
 // loops through an array and returns a card for each business up to 4
 renderCards = (data) => {
     let cardRow = document.querySelector('#card-container')
-
+    cardRow.textContent = '';
+    
     for (let i = 0; i < 4; i++) {
-        let businessName = data.businesses[i].name;
-        let businessRating = data.businesses[i].rating;
-        let businessReviews = data.businesses[i].review_count;
-        let businessImageLink = data.businesses[i].image_url;
-        let businessUrl = data.businesses[i].url;
-        let businessCoords = data.businesses[i].coordinates;
-        let businessCategory = data.businesses[i].categories[0].title;
-        let businessPrice = data.businesses[i].price;
+        let random = randomNumber(data.businesses.length);
+        let businessName = data.businesses[random].name;
+        let businessRating = data.businesses[random].rating;
+        let businessReviews = data.businesses[random].review_count;
+        let businessImageLink = data.businesses[random].image_url;
+        let businessUrl = data.businesses[random].url;
+        let businessCoords = data.businesses[random].coordinates;
+        let businessCategory = data.businesses[random].categories[0].title;
+        let businessPrice = data.businesses[random].price;
     
     
         // TODO: add image link
@@ -74,6 +78,8 @@ renderCards = (data) => {
     
         cardRow.insertAdjacentHTML("beforeend", card);
     }
+
+
 }
 
 // returns a string of stars based on rating of business
@@ -91,6 +97,10 @@ checkPrice = (price) => {
         price = '';
     }
     return price;
+}
+
+randomNumber = (max) => {
+    return Math.floor(Math.random() * max);
 }
 
 // === Init === \\

@@ -141,8 +141,6 @@ nav ul li {
 .card-image {
     object-fit: cover; 
     min-width: 250px;
-    min-height: 350px;
     width: 250px;
-    height: 350px;
 }
 
