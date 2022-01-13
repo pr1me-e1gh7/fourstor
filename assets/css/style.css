@@ -138,3 +138,11 @@ nav ul li {
     border-radius: 8px;
 }
 
+.card-image {
+    object-fit: cover; 
+    min-width: 250px;
+    min-height: 350px;
+    width: 250px;
+    height: 350px;
+}
+
