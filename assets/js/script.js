@@ -9,12 +9,12 @@ let googleApiCoords = "&q="
 
 // === API's === \\
 
+
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
-const yelpApiKeyAlex = "mdfoGE2ADA2HAGF1jXqSPCUPMlv8hHM45fs7eLpYp5yFwNZDlmtE6Swj0GX7k1jvwo1MYecnKRHZ9_nXhScJgG7dhGjyjMS-HfMpLh62OdG4X3hO7YA0FS6d5fXeYXYx";
-const yelpApiKeyThiago;
+const yelpApiKey = "YIugvR9QAxBbpeAbvG2mMthMtBYNpyF8T9RTWBTcVBqcCnf_H17UqVYCmU3KFC-PEQFFU90FZnTGhVs0UOS0YdEcU6iiwFPWERnkKd_8RXtkzsqs1aIbSMund0_gYXYx";
 // vvv these are default parameters that will be dynamically updated via user input on the html page.
-let yelpApiLocation = "Orlando";
+let yelpApiLocation = "orlando";
 let yelpApiCategory = "coffee";
 // TODO: find a way to limit number of businesses to <5
 
@@ -37,8 +37,6 @@ fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocat
         let businessUrl = data.businesses[0].url;
         let businessCoords = data.businesses[0].coordinates;
 
-        renderGoogleMap(businessCoords)
-
         console.log(businessImageLink);
         console.log(businessReviews);
         console.log(businessRating);
@@ -48,10 +46,6 @@ fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocat
     })
 
 // === Functions === \\
-renderGoogleMap = (googleLocation) => {
-    let long = googleLocation.longitude;
-    console.log('this is in the function', long);
-}
 
 
 // === Init === \\
