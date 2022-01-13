@@ -45,7 +45,11 @@
   </header>
 
   <main>
-    <h4 style="font-style: italic;">Your "Mom and Pop" Search Engine</h4>
+    <ul style="list-style-type: none;">
+      <li class="logo-img"><img src="/assets/images/FourStor-logo-clearbkgd.png"></li>
+      <!-- h4 slogan will be dynamic -->
+      <li><h4>Your "Mom and Pop" Search Engine</h4></li>
+    </ul>
     <div class="main-search grid-container">
       <div class="grid-x">
         <a class="clear button large secondary foodEl cell small-6 text-center" href="#food">Food</a>
@@ -58,29 +62,11 @@
     </div>
   </main>
 
-  <!-- * card template -->
-  <!-- ? there are two options of card available -- the first is simpler, and may include the ability to click on the business to pop up a modal with more info and google map? -->
-  <div class="row">
-    <div class="card flex-container flex-dir-row">
-      <img class="card-image" src="https://place-hold.it/300%60x300" alt="placeholder">
-      <div class="flex-container flex-dir-column">
-        <div class="card-divider">
-          <a class="card-link" href="">
-            <h4 class="card-title">Business Title</h4>
-          </a>
-        </div>
-        <div class="card-content">
-          <p><span class="card-star-rating">⭐⭐⭐⭐⭐</span><span class="card-review-count">152</span></p>
-          <p><span class="card-category">category</span> <span class="card-price">$$$</span></p>
-          <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
-          <a class="card-yelp-link" href="#">
-            <img src="https://s3-media0.fl.yelpcdn.com/assets/public/cookbook.yji-7ef71bf77a3395dd1b44f31e354a2dbd.svg" alt="yelp logo">
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="card flex-container flex-dir-row">
+  
+  <div id="card-container" class="row">
+    <!-- * card template -->
+  
+    <!-- <div class="card flex-container flex-dir-row">
       <img class="card-image" src="https://place-hold.it/300%60x300" alt="placeholder">
       <div class="flex-container flex-dir-column">
         <div class="card-divider">
@@ -97,22 +83,22 @@
           </p>
           <p><span class="card-category">category</span> <span class="card-price">$$$</span></p>
           <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
-          <!-- ? this option has a separate button to generate a webpage for the business -->
+          ? this option has a separate button to generate a webpage for the business
           <div>
             <button class="button">Visit Business</button>
           </div>
           
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   
   <footer class="top-bar" style="background-color:var(--navBkgd)">
     <div class="footer-bar">
-      <h4>Powered By Google Maps and TomTom | Copyright © 2022</h4>
+      <h4>Powered By Yelp and Google Maps | Copyright © 2022</h4>
     </div>
   </footer>
-  
+
   <script src="./assets/js/script.js"></script>
 </body>
 

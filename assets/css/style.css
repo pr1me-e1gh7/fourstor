@@ -7,6 +7,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  /* temp background color to contrast logo until animated bkgd is added */
+  background-color: grey;
 }
 
 .button {
@@ -25,6 +27,20 @@ body {
   list-style-type: none;
 }
 
+.logo-img {
+  height: auto;
+  left: 50%;
+  margin-left: -80px;
+  position: relative;
+  width: 10rem;
+}
+
+main ul li h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  text-align: center;
+}
+
 nav a {
   color: var(--navText);
   text-decoration: none;
@@ -35,11 +51,12 @@ nav a:hover {
 }
 
 nav img {
+  height: 2rem;
   left: 50%;
   margin-left: -75px;
-  max-height: 2rem;
   position: absolute;
-  top: 22px;
+  top: 20px;
+  width: auto;
 }
 
 nav ul {
@@ -119,5 +136,13 @@ nav ul li {
     background: #7ad2da;
     padding: 6px 8px;
     border-radius: 8px;
+}
+
+.card-image {
+    object-fit: cover; 
+    min-width: 250px;
+    min-height: 350px;
+    width: 250px;
+    height: 350px;
 }
 
