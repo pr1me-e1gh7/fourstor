@@ -16,138 +16,60 @@
 </head>
 <body>
     <main class="grid-container">
-        <div>
-            <h1 class="text-center">Results</h1>
-            <hr>
-        </div>
 
-        <div class="grid-x grid-margin-x grid-margin-y">
-            <!-- card 1 -->
-            <div class="cell medium-6">
-                <div class="search-card grid-container">
-                    <div class="grid-x">
-                        <div class="cell medium-6">
-                            <iframe
-                                width="250"
-                                height="250"
-                                frameborder="0" style="border:0"
-                                src="https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="cell medium-6">
-                            <h3>Business Name</h3>
-                            <p>Quick Description</p>
-                            <p>Address 1</p>
-                            <p>Address 2</p>
-                            <div class="grid-container grid-x">
-                                    <div class="cell">
-                                        <p>Price: $$$</p>
-                                    </div>
-                                    <div class="cell">
-                                        <p>⭐⭐⭐⭐⭐</p>
-                                    </div>
-                                    <div class="cell"></div>
-                            </div>
-                        </div>
+        <!-- * card template -->
+        <!-- ? there are two options of card available -- the first is simpler, and may include the ability to click on the business to pop up a modal with more info and google map? -->
+        <div class="row">
+            <div class="card flex-container flex-dir-row">
+                <img class="card-image" src="https://place-hold.it/300%60x300" alt="placeholder">
+                <div class="flex-container flex-dir-column">
+                    <div class="card-divider">
+                        <a class="card-link" href="">
+                            <h4 class="card-title">Business Title</h4>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <!-- card 2 -->
-            <div class="cell medium-6">
-                <div class="search-card grid-container">
-                    <div class="grid-x">
-                        <div class="cell medium-6">
-                            <iframe
-                                width="250"
-                                height="250"
-                                frameborder="0" style="border:0"
-                                src="https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="cell medium-6">
-                            <h3>Business Name</h3>
-                            <p>Quick Description</p>
-                            <p>Address 1</p>
-                            <p>Address 2</p>
-                            <div class="grid-container grid-x">
-                                    <div class="cell">
-                                        <p>Price: $$$</p>
-                                    </div>
-                                    <div class="cell">
-                                        <p>⭐⭐⭐⭐⭐</p>
-                                    </div>
-                                    <div class="cell"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card 3 -->
-            <div class="cell medium-6">
-                <div class="search-card grid-container">
-                    <div class="grid-x">
-                        <div class="cell medium-6">
-                            <iframe
-                                width="250"
-                                height="250"
-                                frameborder="0" style="border:0"
-                                src="https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="cell medium-6">
-                            <h3>Business Name</h3>
-                            <p>Quick Description</p>
-                            <p>Address 1</p>
-                            <p>Address 2</p>
-                            <div class="grid-container grid-x">
-                                    <div class="cell">
-                                        <p>Price: $$$</p>
-                                    </div>
-                                    <div class="cell">
-                                        <p>⭐⭐⭐⭐⭐</p>
-                                    </div>
-                                    <div class="cell"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card 4 -->
-            <div class="cell medium-6">
-                <div class="search-card grid-container">
-                    <div class="grid-x">
-                        <div class="cell medium-6">
-                            <iframe
-                                width="250"
-                                height="250"
-                                frameborder="0" style="border:0"
-                                src="https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="cell medium-6">
-                            <h3>Business Name</h3>
-                            <p>Quick Description</p>
-                            <p>Address 1</p>
-                            <p>Address 2</p>
-                            <div class="grid-container grid-x">
-                                    <div class="cell">
-                                        <p>Price: $$$</p>
-                                    </div>
-                                    <div class="cell">
-                                        <p>⭐⭐⭐⭐⭐</p>
-                                    </div>
-                                    <div class="cell"></div>
-                            </div>
-                        </div>
+                    <div class="card-content">
+                        <p><span class="card-star-rating">⭐⭐⭐⭐⭐</span><span class="card-review-count">152</span></p>
+                        <p><span class="card-category">category</span> <span class="card-price">$$$</span></p>
+                        <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
+                        <a class="card-yelp-link" href="#">
+                            <img src="https://s3-media0.fl.yelpcdn.com/assets/public/cookbook.yji-7ef71bf77a3395dd1b44f31e354a2dbd.svg" alt="yelp logo">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            
+        <div class="row">
+            <div class="card flex-container flex-dir-row">
+                <img class="card-image" src="https://place-hold.it/300%60x300" alt="placeholder">
+                <div class="flex-container flex-dir-column">
+                    <div class="card-divider">
+                        <a class="card-link" href="">
+                            <h4 class="card-title">Business Title</h4>
+                        </a>    
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            <span class="card-star-rating">⭐⭐⭐⭐⭐</span><span class="card-review-count">152</span>
+                            <a class="card-yelp-link" href="#">
+                                <img src="https://s3-media0.fl.yelpcdn.com/assets/public/cookbook.yji-7ef71bf77a3395dd1b44f31e354a2dbd.svg" alt="yelp logo">
+                            </a>
+                        </p>
+                        <p><span class="card-category">category</span> <span class="card-price">$$$</span></p>
+                        <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
+                        <!-- ? this option has a separate button to generate a webpage for the business -->
+                        <div>
+                            <button class="button">Visit Business</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
+
     </main>
+
     <script src="./assets/js/search.js"></script>
 </body>
 </html>

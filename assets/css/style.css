@@ -40,10 +40,6 @@ nav ul {
 nav ul li {
   padding: 8px;
   align-items: center;
-=======
-.search-card {
-    border: 1px solid blue;
-    height: 250px;
 }
 
 .main-search {
@@ -69,5 +65,43 @@ nav ul li {
 .servEl {
     border-top:2.5px solid;
     border-left:2.5px solid;
+}
+
+/* === search result cards === */
+
+.card {
+    margin: 30px;
+    width: 80%; 
+    border: 1px solid #dadada;
+    box-shadow: 5px 5px 20px #dbdbdb;
+    transition: transform 0.2s
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 180%;
+}
+
+.card-link,
+.card-link:visited {
+    color: black;
+}
+
+.card-link:hover {
+    color: rgb(47, 47, 47);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-category {
+    background: #7ad2da;
+    padding: 6px 8px;
+    border-radius: 8px;
 }
 
