@@ -3,7 +3,7 @@
 
 // === Global Variables === \\
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
-let gooogleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
+let googleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
 let googleApiCoords = "&q="
 
 // === API's === \\
@@ -75,8 +75,19 @@ renderCards = (data) => {
                             </div>
                         </div>
                     </div>`
+
+            let googleCard = `<iframe
+                                width="600"
+                                height="700"
+                                style="border:0"
+                                loading="lazy"
+                                allowfullscreen
+                                src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${googleName(businessName)}&q=${googleCoords(businessCoords)}">
+                            </iframe>`
     
+                            console.log(googleCard)
         cardRow.insertAdjacentHTML("beforeend", card);
+        cardRow.insertAdjacentHTML("beforeend", googleCard);
     }
 
 
@@ -97,6 +108,22 @@ checkPrice = (price) => {
         price = '';
     }
     return price;
+}
+
+// ==> This function gets the business name and replaces any blank spaces with + for the google link <==
+googleName = (name) => {
+    let newName = name.replace(/\s+/g, '+').toLowerCase()
+    let newerName = newName.replace(/'/g,'')
+    console.log(newerName)
+    return newerName
+}
+
+// ==> This gets the Long and Lat from the yelp review and turns it into a usable string <==
+googleCoords = (newCoords) => {
+    let lat = newCoords.latitude
+    let long = newCoords.longitude
+    console.log(`${lat},${long}`)
+    return `${lat},${long}`
 }
 
 randomNumber = (max) => {
