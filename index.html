@@ -2,62 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!--  Montserrat Font Family src  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
 <!-- Foundation Compressed Web Link CSS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+<!-- Font Awesome Icon Src-->
+  <link rel="stylesheet" href="/assets/css/all.min.css">
 <!-- Our CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 <!--  Website Title  -->
   <title>fourSTOR | Your Small Shop Search Site</title>
+<!-- Website Icon -->
+  <link rel="shortcut icon" type="image/png" href="/assets/images/FourStor-icon.png"
 </head>
 
 <body>
   <header>
     <nav>
-        <div class="top-bar" style="background-color:var(--navBkgd)">
-            <div class="top-bar-left">
-                <ul class="menu" style="background-color:var(--navBkgd)">
-                    <li><input type="text" placeholder="Shop title..." name="search"></li>
-                    <!-- <li><button type="submit" class="button" style="margin-left: -12px;">🔎</button></li> -->
-                    <li><button type="submit" class="button"style="margin-left: -12px;">🌎</button></li>
-                </ul>
-            </div>
-            <div>
-                <div class="nav-img">
-                    <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
-                </div>
-            </div>
-            <div class="top-bar-right">
-                <ul class="top-bar ul" style="background-color:var(--navBkgd);padding:8px">
-                    <li><a href="#whatisfourstor">What is fourSTOR?</a></li>
-                    <li><a href="#aboutus">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
+      <div class="top-bar" style="background-color:var(--navBkgd)">
+        <div class="top-bar-left">
+          <ul class="menu" style="background-color:var(--navBkgd)">
+            <li><input type="text" placeholder="Shop title..." name="search"></li>
+            <!-- <li><button type="submit" class="button" style="margin-left: -12px;"><i class="fas fa-search"></i></button></li> -->
+            <li><button type="submit" class="button"style="margin-left: -12px;"><i class="fas fa-map-marked-alt"></i></button></li>
+          </ul>
         </div>
+        <div>
+          <div class="nav-img">
+            <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
+          </div>
+        </div>
+        <div class="top-bar-right">
+          <ul class="top-bar ul" style="background-color:var(--navBkgd);padding:8px">
+            <li><a href="#whatisfourstor">What is fourSTOR?</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
-
+  <div class="wrapper">
+    <div class="sliding-background"></div>
+</div>
+  
   <main>
     <ul style="list-style-type: none;">
       <li class="logo-img"><img src="/assets/images/FourStor-logo-clearbkgd.png"></li>
       <!-- h4 slogan will be dynamic -->
       <li><h4>Your "Mom and Pop" Search Engine</h4></li>
     </ul>
-    <div class="main-search grid-container grid-container-UI">
+    <div class="grid-container grid-container-UI">
       <div class="grid-x">
-        <a class="grid-container-card" href="#food">Food</a>
-        <a class="grid-container-card" href="#fun">Fun</a>
+        <a class="grid-container-card" href="#food"><i class="fas fa-coffee"></i></i></i></a>
+        <a class="grid-container-card" href="#fun"><i class="fas fa-bowling-ball"></i></a>
       </div>
       <div class="grid-x">
-        <a class="grid-container-card" href="#shops">Shops</a>
-        <a class="grid-container-card" href="#services">Services</a>
+        <a class="grid-container-card" href="#shops"><i class="fas fa-store" style="font-size: 50px;"></i></a>
+        <a class="grid-container-card" href="#services"><i class="fas fa-taxi"></i></a>
       </div>
     </div>
   </main>
@@ -127,7 +134,7 @@
   <footer class="grid-container">
     <div class="footer-bar">
       <h4>Powered By Yelp and Google Maps</h4>
-      <h5>Copyright © 2022</h5>
+      <h5>Copyright <i class="far fa-copyright"></i> 2022</h5>
     </div>
   </footer>
 

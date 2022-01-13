@@ -1,26 +1,28 @@
 :root {
+  --mainHover: black;
+  --mainText: white;
   --navBkgd: #5bd3ff;
   --navHover:white;
   --navText:#1779ba;
-  --mainHover: black;
-  --mainText: white;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
   /* temp background color to contrast logo until animated bkgd is added */
-  background-color: grey;
+  /* background-color: grey; */
+  font-family: 'Montserrat', sans-serif;
 }
 
+/* Footer */
 .footer-bar {
-  text-align: center;
-  margin: 0 auto;
   background-color:var(--navBkgd);
   border: solid;
   border-width: 1px;
+  margin: 0 auto;
+  text-align: center;
   width: 300px;
 }
 
+/* Footer Text */
 .footer-bar h4,
 .footer-bar h5 {
   color: var(--navText);
@@ -31,55 +33,70 @@ body {
   margin-top: 7px;
 }
 
+/* Main UI */
 .grid-container-UI {
+  border: solid;
   border-radius: 20%;
+  border-width: 2px;
   color: var(--mainText);
-  height: 480px;
-  margin-bottom: 50px;
+  height: 500px;
+  margin-bottom: 25px;
+  position: relative;
   width: 500px;
 }
 
-main .main-search .grid-x :hover {
-  color: var(--mainHover);
-}
-
+/* Main UI links */
 .grid-container-card {
   border: solid;
   border-radius: 100%;
-  border-width: 1px;
+  border-width: 3px;
   color: var(--mainText);
+  font-size: 50px;
+  font-weight: bold;
   height: 200px;
-  width: 200px;
+  margin-left: 5%;
+  margin-top: 6.75%;
+  padding-top: 60px;
   position: relative;
   text-align: center;
-  margin-left: 5%;
-  margin-top: 5%;
+  width: 200px;
 }
 
+/* STOR Main Logo styling */
 .logo-img {
   height: auto;
   left: 50%;
   margin-left: -80px;
+  margin-top: 25px;
   position: relative;
   width: 10rem;
+} 
+
+/* Main UI link hover */
+main .grid-x :hover {
+  color: var(--mainHover);
 }
 
+/* Dynamic Slogan styling */
 main ul li h4 {
   color: var(--mainText);
   font-family: 'Montserrat', sans-serif;
   font-style: italic;
   text-align: center;
-}
+}  
 
+/* Navbar text */
 nav a {
   color: var(--navText);
   text-decoration: none;
-}      
+}        
 
+/* Navbar text hover */
 nav a:hover {
   color: var(--navHover);
-}
+}  
 
+/* Navbar logo */
 nav img {
   height: 2rem;
   left: 50%;
@@ -89,6 +106,7 @@ nav img {
   width: auto;
 }
 
+/* Navbar styling */
 nav ul {
   display: block;
   font-family: 'Montserrat', sans-serif;
@@ -96,40 +114,44 @@ nav ul {
   margin-bottom: 0;
   margin-left: 0;
   min-width: 300px;
-}      
+}        
 
+/* Navbar link styling */
 nav ul li {
   align-items: center;
   padding: 8px;
 }
 
-.main-search {
-  border: solid;
-  border-width: 1px;
-  position: relative;
+
+
+
+.wrapper {
+  opacity: 50%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
-.foodEl {
-  border-right:2.5px  solid;
-  border-bottom:2.5px  solid;
+.sliding-background {
+  /* Image Src = https://www.pexels.com */
+  /* background: url("https://ik.imagekit.io/slashit/sliding-background_3z5vIlHdF.png") repeat-x; */
+  background: url("/assets/images/backgrounds/bkgd01.jpg") repeat-x;
+  height: 1000px;
+  width: 6000px;
+  animation: slide 60s linear infinite;
 }
 
-.funEl {
-  border-left:2.5px  solid;
-  border-bottom:2.5px  solid;
+@keyframes slide {
+  0% {
+      transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+      transform: translate3d(-2000px, 0, 0);
+  }
 }
 
-.shopEl {
-  border-top:2.5px  solid;
-  border-right:2.5px  solid;
-}
 
-.servEl {
-  border-top:2.5px solid;
-  border-left:2.5px solid;
-}
-
-/* David's CSS^ */
 
 /* === search result cards === */
 
