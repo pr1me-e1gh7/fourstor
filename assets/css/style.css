@@ -1,17 +1,16 @@
-/* Color References */
 :root {
-  --mainHover: black;
+  --mainHover: #9b9b9b;
   --mainText: white;
   --navBkgd: #5bd3ff;
-  --navHover:white;
-  --navText:#1779ba;
+  --navHover:#1779ba;
+  --navText: white;
 }
 
-/* Landing Page itself */
-  body {
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-  }
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
 /* Footer */
   /* Footer Box */
@@ -54,6 +53,7 @@
   }   
   /* Main UI Box */
   .grid-container-UI {
+    background-color: rgba(0, 0, 0, 0.349);
     border: solid;
     border-radius: 20%;
     border-width: 2px;
@@ -78,48 +78,14 @@
     position: relative;
     text-align: center;
     width: 200px;
-  }  
+  }    
   /* Main UI link hover */
   main .grid-x :hover {
     color: var(--mainHover);
-  }  
+  }    
 
 
-/* NAVBAR */
-  /* Navbar link styling */
-  nav ul li {
-    align-items: center;
-    padding: 8px;
-  }
-  /* Navbar logo */
-  nav img {
-    height: 2rem;
-    left: 50%;
-    margin-left: -75px;
-    position: absolute;
-    top: 20px;
-    width: auto;
-  }
-  /* Navbar styling */
-  nav ul {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    list-style-type: none;
-    margin-bottom: 0;
-    margin-left: 0;
-    min-width: 300px;
-  }        
-  /* Navbar text */
-  nav a {
-    color: var(--navText);
-    text-decoration: none;
-  }        
-  /* Navbar text hover */
-  nav a:hover {
-    color: var(--navHover);
-  }  
-
-/* Moving Background v1 */
+/* MOVING BACKGROUND v1 */
   .wrapper {
     opacity: 75%;
     overflow: hidden;
@@ -127,9 +93,8 @@
     z-index: -1;
   }
   .sliding-background {
-    /* Image Src = https://www.pexels.com */
-    /* background: url("https://ik.imagekit.io/slashit/sliding-background_3z5vIlHdF.png") repeat-x; */
-    background: url("/assets/images/backgrounds/bkgd01.jpg") repeat-x;
+    /* Images Src = https://www.pexels.com */
+    background: repeat-x;
     height: 1000px;
     width: 6000px;
     animation: slide 60s linear infinite;
@@ -142,6 +107,42 @@
         transform: translate3d(-2000px, 0, 0);
     }
   }
+
+
+/* NAVBAR */  
+  /* Navbar link styling */
+  nav ul li {
+    align-items: center;
+    padding: 8px;
+  }  
+  /* Navbar logo */
+  nav img {
+    height: 2rem;
+    left: 50%;
+    margin-left: -75px;
+    position: absolute;
+    top: 20px;
+    width: auto;
+  }  
+  /* Navbar styling */
+  nav ul {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    min-width: 300px;
+  }          
+  /* Navbar text */
+  nav a {
+    color: var(--navText);
+    text-decoration: none;
+  }          
+  /* Navbar text hover */
+  nav a:hover {
+    color: var(--navHover);
+  }    
+
 
 /* === search result cards === */
 

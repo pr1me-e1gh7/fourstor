@@ -265,6 +265,7 @@ servicesBtn.addEventListener('click', function() {
     fetchBusiness('homeservices');
 });
 
+// === Moving Background Array === \\
 
 
 init();
