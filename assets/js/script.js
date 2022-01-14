@@ -1,6 +1,10 @@
 // === DOM Elements === \\
 let mainEl = document.querySelector('main');
 let animBackground = document.querySelector('.wrapper');
+let foodBtn = document.querySelector('#food-btn');
+let funBtn = document.querySelector('#fun-btn');
+let shopBtn = document.querySelector('#shop-btn');
+let servicesBtn = document.querySelector('#services-btn');
 
 // === Global Variables === \\
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
@@ -15,11 +19,11 @@ const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
 const yelpApiKey = "YIugvR9QAxBbpeAbvG2mMthMtBYNpyF8T9RTWBTcVBqcCnf_H17UqVYCmU3KFC-PEQFFU90FZnTGhVs0UOS0YdEcU6iiwFPWERnkKd_8RXtkzsqs1aIbSMund0_gYXYx";
 // vvv these are default parameters that will be dynamically updated via user input on the html page.
 let yelpApiLocation = "fairfax";
-let yelpApiCategory = "zoos";
 
-// ! To gain access to data, go to herokuapp and request access
-fetchBusiness = () => {
-    fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
+fetchBusiness = (category) => {
+    let yelpApiCategory = category;
+
+    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
     headers: {
         'Authorization': `Bearer ${yelpApiKey}`,
         'Cache-Control': 'no-cache', 
@@ -92,20 +96,7 @@ renderCards = (data) => {
                         </div>
                     </div>`
 
-            //  ? can this be deleted 
-            // let googleCard = `<iframe
-            //                     width="600"
-            //                     height="700"
-            //                     style="border:0"
-            //                     loading="lazy"
-            //                     allowfullscreen
-            //                     src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${googleName(businessName)}&q=${googleCoords(businessCoords)}">
-            //                 </iframe>`
-    
-        // console.log(googleCard)
-
         cardRow.insertAdjacentHTML("beforeend", card);
-        // cardRow.insertAdjacentHTML("beforeend", googleCard);s
     }
 
     let cardEl = document.querySelectorAll('.search-card')
@@ -205,7 +196,18 @@ init = () => {
 };
 
 // === Event Listeners === \\
-
+foodBtn.addEventListener('click', function() {
+    fetchBusiness('food');
+});
+funBtn.addEventListener('click', function() {
+    fetchBusiness('active');
+});
+shopBtn.addEventListener('click', function() {
+    fetchBusiness('shopping');
+});
+servicesBtn.addEventListener('click', function() {
+    fetchBusiness('homeservices');
+});
 
 
 
