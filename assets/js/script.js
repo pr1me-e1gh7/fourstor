@@ -71,10 +71,13 @@ renderCards = (data) => {
         let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
                         <img class="card-image" src="${businessImageLink}" alt="placeholder">
                         <div class="flex-container flex-dir-column">
-                            <div class="card-divider">
+                            <div class="card-divider align-justify">
                                 <a class="card-link" href="${businessUrl}">
                                 <h4 class="card-title">${businessName}</h4>
                                 </a>    
+                                <button class="button button-like text-center">
+                                    <i class="fa fa-heart"></i>
+                                </button> 
                             </div>
                             <div class="card-content">
                                 <p>
@@ -116,6 +119,30 @@ renderCards = (data) => {
             renderMapCard(data, index);
         })
     }
+
+    let likeEl = document.querySelectorAll('.button-like')
+
+    for (let i = 0; i < likeEl.length; i++) {
+    likeEl[i].addEventListener('click', function(e) {
+        
+        if (e.target.nodeName == "BUTTON") {
+            if(e.target.classList.contains("liked")) {
+                e.target.classList.remove("liked")
+            }
+            else {
+                e.target.classList.add("liked")
+            }
+        }
+        else {
+            if(e.target.parentNode.classList.contains("liked")) {
+                e.target.parentNode.classList.remove("liked")
+            }
+            else {
+                e.target.parentNode.classList.add("liked")
+            }
+        }
+    })}
+    
 }
 
 renderMapCard = (data, index) => {
@@ -198,6 +225,16 @@ googleCoords = (newCoords) => {
 randomNumber = (max) => {
     return Math.floor(Math.random() * max);
 }
+
+// ==> like change state function <== \\
+
+
+// $(function() {
+//   $('.button-like')
+//     .bind('click', function(event) {
+//       $(".button-like").toggleClass("liked");
+//     })
+// });
 
 // === Init === \\
 init = () => {
