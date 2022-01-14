@@ -1,15 +1,15 @@
 :root {
-  --mainHover: #9b9b9b;
-  --mainText: white;
-  --navBkgd: #5bd3ff;
+  --navBkgd: #31a3cc;
+  --navButton: #1c91bb;
   --navHover:#1779ba;
   --navText: white;
+  --uiHover: #9b9b9b;
+  --uiText: white;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 /* Footer */
@@ -37,7 +37,7 @@ body {
 /* MAIN UI */
   /* Dynamic Slogan styling */
   main ul li h4 {
-    color: var(--mainText);
+    color: var(--uiText);
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     text-align: center;
@@ -57,7 +57,7 @@ body {
     border: solid;
     border-radius: 20%;
     border-width: 2px;
-    color: var(--mainText);
+    color: var(--uiText);
     height: 500px;
     margin-bottom: 25px;
     position: relative;
@@ -68,7 +68,7 @@ body {
     border: solid;
     border-radius: 100%;
     border-width: 3px;
-    color: var(--mainText);
+    color: var(--uiText);
     font-size: 50px;
     font-weight: bold;
     height: 200px;
@@ -81,13 +81,13 @@ body {
   }    
   /* Main UI link hover */
   main .grid-x :hover {
-    color: var(--mainHover);
+    color: var(--uiHover);
   }    
 
 
 /* MOVING BACKGROUND v1 */
   .wrapper {
-    opacity: 75%;
+    opacity: 80%;
     overflow: hidden;
     position: absolute;
     z-index: -1;
@@ -97,7 +97,9 @@ body {
     background: repeat-x;
     height: 1000px;
     width: 6000px;
-    animation: slide 60s linear infinite;
+    animation: slide linear infinite;
+    animation-duration: 20s;
+    
   }
   @keyframes slide {
     0% {
@@ -110,6 +112,14 @@ body {
 
 
 /* NAVBAR */  
+  /* Navbar buttons */
+  #navButtons {
+    background-color: var(--navButton);
+    color: var(--navText);
+  }
+  #navButtons :hover {
+    color: var(--navHover);
+  }
   /* Navbar link styling */
   nav ul li {
     align-items: center;
