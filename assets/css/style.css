@@ -1,6 +1,6 @@
 :root {
   --navBkgd: #31a3cc;
-  --navButton: white;
+  --navButton: #1c91bb;
   --navHover:#1779ba;
   --navText: white;
   --uiHover: #9b9b9b;
@@ -116,7 +116,10 @@ body {
   /* Navbar buttons */
   #navButtons {
     background-color: var(--navButton);
-    color: var(navButtonText);
+    color: var(--navText);
+  }
+  #navButtons :hover {
+    color: var(--navHover);
   }
   /* Navbar link styling */
   nav ul li {
