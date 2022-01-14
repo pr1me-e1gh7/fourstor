@@ -10,6 +10,7 @@ body {
   /* temp background color to contrast logo until animated bkgd is added */
   /* background-color: grey; */
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Footer */
@@ -155,16 +156,21 @@ nav ul li {
 
 /* === search result cards === */
 
-.card {
-    margin: 30px;
+.search-card {
+    margin: 30px 30px 30px auto;
     width: 80%; 
     border: 1px solid #dadada;
     box-shadow: 5px 5px 20px #dbdbdb;
     transition: transform 0.2s
 }
 
-.card:hover {
+.search-card:hover {
     transform: scale(1.03);
+}
+
+.map-card {
+    margin: 30px auto 30px 30px;
+    width: 80%;
 }
 
 .card-title {
