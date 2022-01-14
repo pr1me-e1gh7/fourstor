@@ -166,15 +166,14 @@ body {
 
 #card-container {
   position: relative;
-  margin-bottom: 100px;
 }
 
 .search-card {
-    margin: 30px 30px 30px auto;
-    width: 80%; 
-    border: 1px solid #dadada;
-    box-shadow: 5px 5px 20px #dbdbdb;
-    transition: transform 0.2s
+  margin: 30px 30px 30px auto;
+  width: 80%; 
+  border: 1px solid #dadada;
+  box-shadow: 5px 5px 20px #dbdbdb;
+  transition: transform 0.2s
 }
 
 .refresh-btn {
@@ -209,6 +208,10 @@ body {
     color: rgb(47, 47, 47);
 }
 
+.card-info {
+  width: 100%;
+}
+
 .card-content {
     padding: 20px;
 }
@@ -224,6 +227,7 @@ body {
     min-width: 250px;
     width: 250px;
 }
+
 
 .button-like {
   border: 2px solid #8a8a8a;

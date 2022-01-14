@@ -79,17 +79,17 @@ renderCards = (data) => {
         let businessUrl = data.businesses[random].url;
         let businessCategory = data.businesses[random].categories[0].title;
         let businessPrice = data.businesses[random].price;
-    
+
         // TODO: add image link
         let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
                         <img class="card-image" src="${businessImageLink}" alt="placeholder">
-                        <div class="flex-container flex-dir-column">
+                        <div class="flex-container flex-dir-column card-info">
                             <div class="card-divider align-justify">
                                 <a class="card-link" href="${businessUrl}">
                                 <h4 class="card-title">${businessName}</h4>
                                 </a>    
-                                <button class="button button-like text-center">
-                                    <i class="fa fa-heart"></i>
+                                <button class="button button-like text-center" data-index="${random}">
+                                    <i class="fa fa-heart" data-index="${random}"></i>
                                 </button> 
                             </div>
                             <div class="card-content">
@@ -100,7 +100,6 @@ renderCards = (data) => {
                                 </a>
                                 </p>
                                 <p><span class="card-category">${businessCategory}</span> <span class="card-price">${checkPrice(businessPrice)}</span></p>
-                                <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
                                 <div>
                                 <button class="button" onclick="location.href='${businessUrl}';">Visit Business</button>
                                 </div>
@@ -111,20 +110,25 @@ renderCards = (data) => {
         cardRow.insertAdjacentHTML("beforeend", card);
     }
 
+    // handles map card
     let cardEl = document.querySelectorAll('.search-card')
 
     for (let i = 0; i < cardEl.length; i++) {
-        cardEl[i].addEventListener('click', function() {
+        cardEl[i].addEventListener('click', function(e) {
+            // ignore if like button is clicked
+            if (e.target.nodeName == "BUTTON" || e.target.nodeName == "I") {
+                return;
+            }
             let index = this.dataset.index;
             renderMapCard(data, index);
         })
     }
 
+    // handles map button
     let likeEl = document.querySelectorAll('.button-like')
 
     for (let i = 0; i < likeEl.length; i++) {
-    likeEl[i].addEventListener('click', function(e) {
-        
+    likeEl[i].addEventListener('click', function(e) {  
         if (e.target.nodeName == "BUTTON") {
             if(e.target.classList.contains("liked")) {
                 e.target.classList.remove("liked")
@@ -141,9 +145,17 @@ renderCards = (data) => {
                 e.target.parentNode.classList.add("liked")
             }
         }
+        let index = this.dataset.index;
+        // * save for later
+        // saveBusiness(data, index);
     })}
     
 }
+
+// * save for later 
+// saveBusiness = (data, index) => {
+//     console.log(data.businesses[index]);
+// }
 
 renderMapCard = (data, index) => {
     let cardIndex = index;
