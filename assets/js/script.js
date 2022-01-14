@@ -1,5 +1,6 @@
 // === DOM Elements === \\
-
+let mainEl = document.querySelector('main');
+let animBackground = document.querySelector('.wrapper');
 
 // === Global Variables === \\
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
@@ -29,11 +30,26 @@ fetchBusiness = () => {
     })
     .then(function(data) {
         console.log(data);
-        renderCards(data);
+        renderSearchPage(data)
     })
 };
 
 // === Functions === \\
+
+renderSearchPage = (data) => {
+    let searchPage = document.querySelector('#search-page-container');
+    let cardContainer = document.querySelector('#card-container');
+    let mapContainer = document.querySelector('#map-container')
+
+    mainEl.textContent = '';
+    animBackground.textContent = '';
+
+    // renders search cards
+    renderCards(data);
+    renderMapCard(data);
+    
+}
+
 // loops through an array and returns a card for each business up to 4
 renderCards = (data) => {
     let cardRow = document.querySelector('#card-container')
@@ -52,7 +68,7 @@ renderCards = (data) => {
     
     
         // TODO: add image link
-        let card = `<div class="card flex-container flex-dir-row">
+        let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
                         <img class="card-image" src="${businessImageLink}" alt="placeholder">
                         <div class="flex-container flex-dir-column">
                             <div class="card-divider">
@@ -76,21 +92,74 @@ renderCards = (data) => {
                         </div>
                     </div>`
 
-            let googleCard = `<iframe
-                                width="600"
-                                height="700"
-                                style="border:0"
-                                loading="lazy"
-                                allowfullscreen
-                                src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${googleName(businessName)}&q=${googleCoords(businessCoords)}">
-                            </iframe>`
+            //  ? can this be deleted 
+            // let googleCard = `<iframe
+            //                     width="600"
+            //                     height="700"
+            //                     style="border:0"
+            //                     loading="lazy"
+            //                     allowfullscreen
+            //                     src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${googleName(businessName)}&q=${googleCoords(businessCoords)}">
+            //                 </iframe>`
     
-                            console.log(googleCard)
+        // console.log(googleCard)
+
         cardRow.insertAdjacentHTML("beforeend", card);
-        cardRow.insertAdjacentHTML("beforeend", googleCard);
+        // cardRow.insertAdjacentHTML("beforeend", googleCard);s
     }
 
+    let cardEl = document.querySelectorAll('.search-card')
 
+    for (let i = 0; i < cardEl.length; i++) {
+        cardEl[i].addEventListener('click', function() {
+            let index = this.dataset.index;
+            renderMapCard(data, index);
+        })
+    }
+}
+
+renderMapCard = (data, index) => {
+    let cardIndex = index;
+    
+    if (cardIndex === undefined || cardIndex === null) {
+        cardIndex = document.querySelector('#card-container').firstChild.dataset.index;
+    }
+    console.log('index is', index);
+    let mapRow = document.querySelector('#map-container')
+    let businessName = data.businesses[cardIndex].name;
+    let businessAddressOne = data.businesses[cardIndex].location.display_address[0];
+    let businessAddressTwo = data.businesses[cardIndex].location.display_address[1];
+    let businessPhone = data.businesses[cardIndex].display_phone;
+    let businessCoords = data.businesses[cardIndex].coordinates;
+
+    mapRow.textContent = '';
+
+    let card = `<div class="card map-card">
+                    <div class="card-divider">
+                    <h4 class="card-title">${businessName}</h4>
+                    </div>
+                    <div class="card-content grid-x">
+                    <div class="cell small-6 address">
+                        <h5>Address</h5>
+                        <p>${businessAddressOne} <br>${businessAddressTwo}</p>
+                    </div>
+                    <div class="cell small-6 phone">
+                        <h5>Phone</h5>
+                        <p>${businessPhone}</p>
+                    </div>
+                    
+                    </div>
+                    <iframe
+                        width="100%"
+                        height="700"
+                        style="border:0"
+                        loading="lazy"
+                        allowfullscreen
+                        src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${businessName}&q=${businessCoords.latitude},${businessCoords.longitude}">
+                    </iframe>
+                </div>`
+
+    mapRow.insertAdjacentHTML("beforeend", card);
 }
 
 // returns a string of stars based on rating of business
@@ -122,7 +191,7 @@ googleName = (name) => {
 googleCoords = (newCoords) => {
     let lat = newCoords.latitude
     let long = newCoords.longitude
-    console.log(`${lat},${long}`)
+    // console.log(`${lat},${long}`)
     return `${lat},${long}`
 }
 
