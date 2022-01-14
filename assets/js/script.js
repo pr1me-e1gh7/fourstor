@@ -50,6 +50,18 @@ renderSearchPage = (data) => {
     // renders search cards
     renderCards(data);
     renderMapCard(data);
+
+    let refreshBtn = document.createElement('button');
+    refreshBtn.classList.add('button');
+    refreshBtn.classList.add('refresh-btn')
+    refreshBtn.textContent = 'Give me 4 more!';
+    refreshBtn.addEventListener('click', function() {
+        renderSearchPage(data);
+    })
+
+    let cardRow = document.querySelector('#card-container')
+
+    cardRow.appendChild(refreshBtn);
 }
 
 // loops through an array and returns a card for each business up to 4

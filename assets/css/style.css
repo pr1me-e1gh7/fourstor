@@ -192,6 +192,10 @@
     width: 250px;
 }
 
+.refresh-btn {
+  justify-content: center;
+}
+
 .button-like {
   border: 2px solid #8a8a8a;
   background-color: transparent;
