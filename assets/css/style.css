@@ -120,6 +120,14 @@ body {
   #navButtons :hover {
     color: var(--navHover);
   }
+
+  header {
+    z-index: 100;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+  }
+
   /* Navbar link styling */
   nav ul li {
     align-items: center;
@@ -156,12 +164,23 @@ body {
 
 /* === search result cards === */
 
+#card-container {
+  position: relative;
+  margin-bottom: 100px;
+}
+
 .search-card {
     margin: 30px 30px 30px auto;
     width: 80%; 
     border: 1px solid #dadada;
     box-shadow: 5px 5px 20px #dbdbdb;
     transition: transform 0.2s
+}
+
+.refresh-btn {
+  position: absolute;
+  right: 30px;
+  width: 80%;
 }
 
 .search-card:hover {
@@ -171,6 +190,9 @@ body {
 .map-card {
     margin: 30px auto 30px 30px;
     width: 80%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
 }
 
 .card-title {
@@ -201,10 +223,6 @@ body {
     object-fit: cover; 
     min-width: 250px;
     width: 250px;
-}
-
-.refresh-btn {
-  justify-content: center;
 }
 
 .button-like {
