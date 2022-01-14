@@ -1,3 +1,4 @@
+/* Color References */
 :root {
   --mainHover: black;
   --mainText: white;
@@ -6,153 +7,141 @@
   --navText:#1779ba;
 }
 
-body {
-  /* temp background color to contrast logo until animated bkgd is added */
-  /* background-color: grey; */
-  font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
-}
+/* Landing Page itself */
+  body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+  }
 
 /* Footer */
-.footer-bar {
-  background-color:var(--navBkgd);
-  border: solid;
-  border-width: 1px;
-  margin: 0 auto;
-  text-align: center;
-  width: 300px;
-}
-
-/* Footer Text */
-.footer-bar h4,
-.footer-bar h5 {
-  color: var(--navText);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  line-height: 10px;
-  list-style-type: none;
-  margin-top: 7px;
-}
-
-/* Main UI */
-.grid-container-UI {
-  border: solid;
-  border-radius: 20%;
-  border-width: 2px;
-  color: var(--mainText);
-  height: 500px;
-  margin-bottom: 25px;
-  position: relative;
-  width: 500px;
-}
-
-/* Main UI links */
-.grid-container-card {
-  border: solid;
-  border-radius: 100%;
-  border-width: 3px;
-  color: var(--mainText);
-  font-size: 50px;
-  font-weight: bold;
-  height: 200px;
-  margin-left: 5%;
-  margin-top: 6.75%;
-  padding-top: 60px;
-  position: relative;
-  text-align: center;
-  width: 200px;
-}
-
-/* STOR Main Logo styling */
-.logo-img {
-  height: auto;
-  left: 50%;
-  margin-left: -80px;
-  margin-top: 25px;
-  position: relative;
-  width: 10rem;
-} 
-
-/* Main UI link hover */
-main .grid-x :hover {
-  color: var(--mainHover);
-}
-
-/* Dynamic Slogan styling */
-main ul li h4 {
-  color: var(--mainText);
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
-  text-align: center;
-}  
-
-/* Navbar text */
-nav a {
-  color: var(--navText);
-  text-decoration: none;
-}        
-
-/* Navbar text hover */
-nav a:hover {
-  color: var(--navHover);
-}  
-
-/* Navbar logo */
-nav img {
-  height: 2rem;
-  left: 50%;
-  margin-left: -75px;
-  position: absolute;
-  top: 20px;
-  width: auto;
-}
-
-/* Navbar styling */
-nav ul {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  list-style-type: none;
-  margin-bottom: 0;
-  margin-left: 0;
-  min-width: 300px;
-}        
-
-/* Navbar link styling */
-nav ul li {
-  align-items: center;
-  padding: 8px;
-}
-
-
-
-
-.wrapper {
-  opacity: 75%;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.sliding-background {
-  /* Image Src = https://www.pexels.com */
-  /* background: url("https://ik.imagekit.io/slashit/sliding-background_3z5vIlHdF.png") repeat-x; */
-  background: url("/assets/images/backgrounds/bkgd01.jpg") repeat-x;
-  height: 1000px;
-  width: 6000px;
-  animation: slide 60s linear infinite;
-}
-
-@keyframes slide {
-  0% {
-      transform: translate3d(0, 0, 0);
+  /* Footer Box */
+  .footer-bar {
+    background-color:var(--navBkgd);
+    border: solid;
+    border-width: 1px;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
   }
+  /* Footer Text */
+  .footer-bar h4,
+  .footer-bar h5 {
+    color: var(--navText);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 10px;
+    list-style-type: none;
+    margin-top: 7px;
+  }  
 
-  100% {
-      transform: translate3d(-2000px, 0, 0);
+
+/* MAIN UI */
+  /* Dynamic Slogan styling */
+  main ul li h4 {
+    color: var(--mainText);
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    text-align: center;
+  }  
+  /* fourSTOR Main Logo styling */
+  .logo-img {
+    height: auto;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: 25px;
+    position: relative;
+    width: 10rem;
+  }   
+  /* Main UI Box */
+  .grid-container-UI {
+    border: solid;
+    border-radius: 20%;
+    border-width: 2px;
+    color: var(--mainText);
+    height: 500px;
+    margin-bottom: 25px;
+    position: relative;
+    width: 500px;
+  }  
+  /* Main UI links */
+  .grid-container-card {
+    border: solid;
+    border-radius: 100%;
+    border-width: 3px;
+    color: var(--mainText);
+    font-size: 50px;
+    font-weight: bold;
+    height: 200px;
+    margin-left: 5%;
+    margin-top: 6.75%;
+    padding-top: 60px;
+    position: relative;
+    text-align: center;
+    width: 200px;
+  }  
+  /* Main UI link hover */
+  main .grid-x :hover {
+    color: var(--mainHover);
+  }  
+
+
+/* NAVBAR */
+  /* Navbar link styling */
+  nav ul li {
+    align-items: center;
+    padding: 8px;
   }
-}
+  /* Navbar logo */
+  nav img {
+    height: 2rem;
+    left: 50%;
+    margin-left: -75px;
+    position: absolute;
+    top: 20px;
+    width: auto;
+  }
+  /* Navbar styling */
+  nav ul {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    min-width: 300px;
+  }        
+  /* Navbar text */
+  nav a {
+    color: var(--navText);
+    text-decoration: none;
+  }        
+  /* Navbar text hover */
+  nav a:hover {
+    color: var(--navHover);
+  }  
 
-
+/* Moving Background v1 */
+  .wrapper {
+    opacity: 75%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .sliding-background {
+    /* Image Src = https://www.pexels.com */
+    /* background: url("https://ik.imagekit.io/slashit/sliding-background_3z5vIlHdF.png") repeat-x; */
+    background: url("/assets/images/backgrounds/bkgd01.jpg") repeat-x;
+    height: 1000px;
+    width: 6000px;
+    animation: slide 60s linear infinite;
+  }
+  @keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-2000px, 0, 0);
+    }
+  }
 
 /* === search result cards === */
 

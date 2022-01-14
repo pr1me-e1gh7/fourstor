@@ -1,25 +1,32 @@
 // === DOM Elements === \\
 let mainEl = document.querySelector('main');
 let animBackground = document.querySelector('.wrapper');
+let foodBtn = document.querySelector('#food-btn');
+let funBtn = document.querySelector('#fun-btn');
+let shopBtn = document.querySelector('#shop-btn');
+let servicesBtn = document.querySelector('#services-btn');
+let searchInput = document.querySelector('#search-input');
+let searchBtn = document.querySelector('#search-btn');
 
 // === Global Variables === \\
+
+
+
+// === API's === \\
+// google API
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
 let googleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
 let googleApiCoords = "&q="
 
-// === API's === \\
-
-
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
 const yelpApiKey = "YIugvR9QAxBbpeAbvG2mMthMtBYNpyF8T9RTWBTcVBqcCnf_H17UqVYCmU3KFC-PEQFFU90FZnTGhVs0UOS0YdEcU6iiwFPWERnkKd_8RXtkzsqs1aIbSMund0_gYXYx";
-// vvv these are default parameters that will be dynamically updated via user input on the html page.
 let yelpApiLocation = "fairfax";
-let yelpApiCategory = "zoos";
 
-// ! To gain access to data, go to herokuapp and request access
-fetchBusiness = () => {
-    fetch (`https://cors-anywhere.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
+fetchBusiness = (category) => {
+    let yelpApiCategory = category;
+
+    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
     headers: {
         'Authorization': `Bearer ${yelpApiKey}`,
         'Cache-Control': 'no-cache', 
@@ -37,17 +44,12 @@ fetchBusiness = () => {
 // === Functions === \\
 
 renderSearchPage = (data) => {
-    let searchPage = document.querySelector('#search-page-container');
-    let cardContainer = document.querySelector('#card-container');
-    let mapContainer = document.querySelector('#map-container')
-
     mainEl.textContent = '';
     animBackground.textContent = '';
 
     // renders search cards
     renderCards(data);
     renderMapCard(data);
-    
 }
 
 // loops through an array and returns a card for each business up to 4
@@ -57,15 +59,14 @@ renderCards = (data) => {
     
     for (let i = 0; i < 4; i++) {
         let random = randomNumber(data.businesses.length);
+
         let businessName = data.businesses[random].name;
         let businessRating = data.businesses[random].rating;
         let businessReviews = data.businesses[random].review_count;
         let businessImageLink = data.businesses[random].image_url;
         let businessUrl = data.businesses[random].url;
-        let businessCoords = data.businesses[random].coordinates;
         let businessCategory = data.businesses[random].categories[0].title;
         let businessPrice = data.businesses[random].price;
-    
     
         // TODO: add image link
         let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
@@ -95,20 +96,7 @@ renderCards = (data) => {
                         </div>
                     </div>`
 
-            //  ? can this be deleted 
-            // let googleCard = `<iframe
-            //                     width="600"
-            //                     height="700"
-            //                     style="border:0"
-            //                     loading="lazy"
-            //                     allowfullscreen
-            //                     src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${googleName(businessName)}&q=${googleCoords(businessCoords)}">
-            //                 </iframe>`
-    
-        // console.log(googleCard)
-
         cardRow.insertAdjacentHTML("beforeend", card);
-        // cardRow.insertAdjacentHTML("beforeend", googleCard);s
     }
 
     let cardEl = document.querySelectorAll('.search-card')
@@ -151,7 +139,7 @@ renderMapCard = (data, index) => {
     if (cardIndex === undefined || cardIndex === null) {
         cardIndex = document.querySelector('#card-container').firstChild.dataset.index;
     }
-    console.log('index is', index);
+
     let mapRow = document.querySelector('#map-container')
     let businessName = data.businesses[cardIndex].name;
     let businessAddressOne = data.businesses[cardIndex].location.display_address[0];
@@ -242,7 +230,28 @@ init = () => {
 };
 
 // === Event Listeners === \\
+searchBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
+    searchInput.value = '';
+    fetchBusiness(searchValue);
+})
 
+foodBtn.addEventListener('click', function() {
+    fetchBusiness('food');
+});
+
+funBtn.addEventListener('click', function() {
+    fetchBusiness('active');
+});
+
+shopBtn.addEventListener('click', function() {
+    fetchBusiness('shopping');
+});
+
+servicesBtn.addEventListener('click', function() {
+    fetchBusiness('homeservices');
+});
 
 
 
