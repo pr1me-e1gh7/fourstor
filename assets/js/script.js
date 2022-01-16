@@ -8,10 +8,6 @@ let servicesBtn = document.querySelector('#services-btn');
 let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
 
-// === Global Variables === \\
-
-
-
 // === API's === \\
 // google API
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
@@ -26,19 +22,19 @@ let yelpApiLocation = "fairfax";
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
 
-    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
-    headers: {
-        'Authorization': `Bearer ${yelpApiKey}`,
-        'Cache-Control': 'no-cache', 
-    }
-})
-    .then(function(response) {
-        return response.json();
+    fetch(`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
+        headers: {
+            'Authorization': `Bearer ${yelpApiKey}`,
+            'Cache-Control': 'no-cache',
+        }
     })
-    .then(function(data) {
-        console.log(data);
-        renderSearchPage(data)
-    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            renderSearchPage(data)
+        })
 };
 
 // === Functions === \\
@@ -55,7 +51,7 @@ renderSearchPage = (data) => {
     refreshBtn.classList.add('button');
     refreshBtn.classList.add('refresh-btn')
     refreshBtn.textContent = 'Give me 4 more!';
-    refreshBtn.addEventListener('click', function() {
+    refreshBtn.addEventListener('click', function () {
         renderSearchPage(data);
     })
 
@@ -68,7 +64,7 @@ renderSearchPage = (data) => {
 renderCards = (data) => {
     let cardRow = document.querySelector('#card-container')
     cardRow.textContent = '';
-    
+
     for (let i = 0; i < 4; i++) {
         let random = randomNumber(data.businesses.length);
 
@@ -114,7 +110,7 @@ renderCards = (data) => {
     let cardEl = document.querySelectorAll('.search-card')
 
     for (let i = 0; i < cardEl.length; i++) {
-        cardEl[i].addEventListener('click', function(e) {
+        cardEl[i].addEventListener('click', function (e) {
             // ignore if like button is clicked
             if (e.target.nodeName == "BUTTON" || e.target.nodeName == "I") {
                 return;
@@ -128,28 +124,29 @@ renderCards = (data) => {
     let likeEl = document.querySelectorAll('.button-like')
 
     for (let i = 0; i < likeEl.length; i++) {
-    likeEl[i].addEventListener('click', function(e) {  
-        if (e.target.nodeName == "BUTTON") {
-            if(e.target.classList.contains("liked")) {
-                e.target.classList.remove("liked")
+        likeEl[i].addEventListener('click', function (e) {
+            if (e.target.nodeName == "BUTTON") {
+                if (e.target.classList.contains("liked")) {
+                    e.target.classList.remove("liked")
+                }
+                else {
+                    e.target.classList.add("liked")
+                }
             }
             else {
-                e.target.classList.add("liked")
+                if (e.target.parentNode.classList.contains("liked")) {
+                    e.target.parentNode.classList.remove("liked")
+                }
+                else {
+                    e.target.parentNode.classList.add("liked")
+                }
             }
-        }
-        else {
-            if(e.target.parentNode.classList.contains("liked")) {
-                e.target.parentNode.classList.remove("liked")
-            }
-            else {
-                e.target.parentNode.classList.add("liked")
-            }
-        }
-        let index = this.dataset.index;
-        // * save for later
-        // saveBusiness(data, index);
-    })}
-    
+            let index = this.dataset.index;
+            // * save for later
+            // saveBusiness(data, index);
+        })
+    }
+
 }
 
 // * save for later 
@@ -159,7 +156,7 @@ renderCards = (data) => {
 
 renderMapCard = (data, index) => {
     let cardIndex = index;
-    
+
     if (cardIndex === undefined || cardIndex === null) {
         cardIndex = document.querySelector('#card-container').firstChild.dataset.index;
     }
@@ -221,7 +218,7 @@ checkPrice = (price) => {
 // ==> This function gets the business name and replaces any blank spaces with + for the google link <==
 googleName = (name) => {
     let newName = name.replace(/\s+/g, '+').toLowerCase()
-    let newerName = newName.replace(/'/g,'')
+    let newerName = newName.replace(/'/g, '')
     console.log(newerName)
     return newerName
 }
@@ -238,42 +235,32 @@ randomNumber = (max) => {
     return Math.floor(Math.random() * max);
 }
 
-// ==> like change state function <== \\
-
-
-// $(function() {
-//   $('.button-like')
-//     .bind('click', function(event) {
-//       $(".button-like").toggleClass("liked");
-//     })
-// });
-
 // === Init === \\
 init = () => {
-    
+
 };
 
 // === Event Listeners === \\
-searchBtn.addEventListener('click', function(e) {
+searchBtn.addEventListener('click', function (e) {
     e.preventDefault();
     let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
     searchInput.value = '';
     fetchBusiness(searchValue);
 })
 
-foodBtn.addEventListener('click', function() {
+foodBtn.addEventListener('click', function () {
     fetchBusiness('food');
 });
 
-funBtn.addEventListener('click', function() {
+funBtn.addEventListener('click', function () {
     fetchBusiness('active');
 });
 
-shopBtn.addEventListener('click', function() {
+shopBtn.addEventListener('click', function () {
     fetchBusiness('shopping');
 });
 
-servicesBtn.addEventListener('click', function() {
+servicesBtn.addEventListener('click', function () {
     fetchBusiness('homeservices');
 });
 
