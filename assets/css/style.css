@@ -336,6 +336,12 @@ body {
     display: flex;
     flex-direction: column;
   }
+
+  .card-title {
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 135%;
+  }
   
   .search-card {
     margin: 30px auto;
