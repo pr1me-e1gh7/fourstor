@@ -8,6 +8,22 @@ let servicesBtn = document.querySelector('#services-btn');
 let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
 
+
+// === Global Variables === \\
+let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bicycles','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
+
+// handles the autocomplete functionality of the search input
+$( function() {
+    $( "#search-input" ).autocomplete({
+        source: function(request, response) {
+            var results = $.ui.autocomplete.filter(availableTags, request.term);
+            // limits number of autocomplete responses to 12
+            response(results.slice(0, 12));
+        }
+    });
+});
+
+
 // === API's === \\
 // google API
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
@@ -22,11 +38,26 @@ let yelpApiLocation = "fairfax";
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
 
+
     fetch(`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
         headers: {
             'Authorization': `Bearer ${yelpApiKey}`,
             'Cache-Control': 'no-cache',
         }
+
+    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
+        headers: {
+            'Authorization': `Bearer ${yelpApiKey}`,
+            'Cache-Control': 'no-cache', 
+        }
+    })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        renderSearchPage(data)
+
     })
         .then(function (response) {
             return response.json();
@@ -241,8 +272,33 @@ init = () => {
 };
 
 // === Event Listeners === \\
+
 searchBtn.addEventListener('click', function (e) {
+
+
+//checks if user input matches predefined categories
+searchInput.addEventListener('input', function() {
+        searchBtn.classList.remove('disabled');
+        searchBtn.disabled = false;
+})
+
+searchBtn.addEventListener('click', function(e) {
+
     e.preventDefault();
+
+    if (!availableTags.includes(searchInput.value)) {
+        // stop function from running and give feedback
+        searchBtn.classList.add('disabled');
+        searchBtn.disabled = true;
+        searchInput.value = '';
+        searchInput.placeholder = 'Enter a valid category';
+        searchInput.classList.add('invalid');
+        return;
+    }
+
+    searchInput.placeholder = 'Category';
+    searchInput.classList.remove('invalid');
+
     let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
     searchInput.value = '';
     fetchBusiness(searchValue);

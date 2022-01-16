@@ -10,6 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/all.min.css">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<!-- Our CSS -->
+
   <link rel="stylesheet" href="/assets/css/style.css">
   <title>fourSTOR | Your Small Shop Search Site</title>
   <link rel="shortcut icon" type="image/png" href="/assets/images/FourStor-icon.png">
@@ -23,19 +27,28 @@
       <div class="top-bar" style="background-color:var(--navBkgd)">
 
         <div class="top-bar-left">
+
           <ul class="menu" style="background-color:var(--navBkgd)">
             <!-- location icon -->
             <li><button id="location-btn" type="submit" class="button navButtons"><i class="fas fa-map-marked-alt"></i></button></li>
             <!-- text input -->
             <li><input id="search-input" type="text" placeholder="Shop title..." name="search"></li>
             <!-- search icon -->
+
+          <ul class="menu ui-widget" style="background-color:var(--navBkgd)">
+            <li><button id="home-btn" type="submit" class="button navButtons" onClick="window.location.reload()"><i class="fas fa-home"></i></button></li>
+            <li><button id="location-btn" type="submit" class="button navButtons"><i class="fas fa-map-marked-alt"></i></button></li>
+            <li><input id="search-input" type="text" placeholder="Category" name="search"></li>
+
             <li><button id="search-btn" type="submit" class="button navButtons" style="margin-left: -32px;"><i class="fas fa-search"></i></button></li>
           </ul>
         </div>
 
         <div>
           <div class="nav-img">
-            <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
+            <a href=".">
+              <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
+            </a>
           </div>
         </div>
 
@@ -113,6 +126,12 @@
 
     </div>
   </footer>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
   <script src="./assets/js/script.js"></script>
 </body>

@@ -35,6 +35,7 @@ body {
 
 
 /* MAIN UI */
+
   /* Dynamic Slogan styling */
   main ul li h4 {
     color: var(--uiText);
@@ -133,7 +134,7 @@ body {
   }
 
   header {
-    z-index: 100;
+    z-index: 5;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
@@ -199,10 +200,10 @@ body {
 
 .map-card {
     margin: 30px auto 30px 30px;
-    width: 80%;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 100px;
+    width: 30%;
+    height: 80%;
+    position: fixed;
+    top: 75px;
 }
 
 .card-title {
@@ -237,6 +238,7 @@ body {
     object-fit: cover; 
     min-width: 250px;
     width: 250px;
+    height: auto;
 }
 
 
@@ -309,5 +311,14 @@ body {
 .liked:hover .fa,
 .liked:hover span {
   color: #fefefe;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.invalid::placeholder {
+  font-style: italic;
+  color: red;
 }
 
