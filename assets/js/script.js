@@ -38,13 +38,6 @@ let yelpApiLocation = "fairfax";
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
 
-
-    fetch(`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
-        headers: {
-            'Authorization': `Bearer ${yelpApiKey}`,
-            'Cache-Control': 'no-cache',
-        }
-
     fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
         headers: {
             'Authorization': `Bearer ${yelpApiKey}`,
@@ -59,13 +52,6 @@ fetchBusiness = (category) => {
         renderSearchPage(data)
 
     })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            renderSearchPage(data)
-        })
 };
 
 // === Functions === \\
@@ -266,15 +252,7 @@ randomNumber = (max) => {
     return Math.floor(Math.random() * max);
 }
 
-// === Init === \\
-init = () => {
-
-};
-
 // === Event Listeners === \\
-
-searchBtn.addEventListener('click', function (e) {
-
 
 //checks if user input matches predefined categories
 searchInput.addEventListener('input', function() {
@@ -302,7 +280,7 @@ searchBtn.addEventListener('click', function(e) {
     let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
     searchInput.value = '';
     fetchBusiness(searchValue);
-})
+});
 
 foodBtn.addEventListener('click', function () {
     fetchBusiness('food');
@@ -319,8 +297,3 @@ shopBtn.addEventListener('click', function () {
 servicesBtn.addEventListener('click', function () {
     fetchBusiness('homeservices');
 });
-
-// === Moving Background Array === \\
-
-
-init();

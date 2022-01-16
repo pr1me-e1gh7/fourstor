@@ -18,7 +18,7 @@ body {
     background-color:var(--navBkgd);
     border: solid;
     border-width: 1px;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     text-align: center;
     width: 300px;
   }
@@ -241,6 +241,9 @@ body {
     height: auto;
 }
 
+.search-page {
+  margin-bottom: 100px;
+}
 
 .button-like {
   border: 2px solid #8a8a8a;
