@@ -348,3 +348,20 @@ body {
     margin: 0 auto;
   }
 }
+
+@media screen and (max-width: 980px) {
+  .top-bar-left, .top-bar-right {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .top-bar-left {
+    margin-top: 50px;
+  }
+
+  .top-bar-right {
+    margin-top: 10px;
+  }
+
+}
