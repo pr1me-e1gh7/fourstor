@@ -313,3 +313,12 @@ body {
   color: #fefefe;
 }
 
+.invalid {
+  border: 2px solid red;
+}
+
+.invalid::placeholder {
+  font-style: italic;
+  color: red;
+}
+

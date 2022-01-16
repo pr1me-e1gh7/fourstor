@@ -256,29 +256,26 @@ init = () => {
 // === Event Listeners === \\
 
 //checks if user input matches predefined categories
-// searchInput.addEventListener('input', function() {
-//     if (availableTags.includes(searchInput.value)) {
-//         searchBtn.classList.remove('disabled');
-//         searchBtn.disabled = false;
-//     } else {
-//         searchBtn.classList.add('disabled');
-//         searchBtn.disabled = true;
-//     }
-// })
+searchInput.addEventListener('input', function() {
+        searchBtn.classList.remove('disabled');
+        searchBtn.disabled = false;
+})
 
 searchBtn.addEventListener('click', function(e) {
     e.preventDefault();
 
-    if (availableTags.includes(searchInput.value)) {
-        searchBtn.classList.remove('disabled');
-        searchBtn.disabled = false;
-    } else {
+    if (!availableTags.includes(searchInput.value)) {
+        // stop function from running and give feedback
         searchBtn.classList.add('disabled');
         searchBtn.disabled = true;
         searchInput.value = '';
         searchInput.placeholder = 'Enter a valid category';
+        searchInput.classList.add('invalid');
         return;
     }
+
+    searchInput.placeholder = 'Category';
+    searchInput.classList.remove('invalid');
 
     let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
     searchInput.value = '';
