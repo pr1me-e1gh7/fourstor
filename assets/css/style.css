@@ -35,6 +35,7 @@ body {
 
 
 /* MAIN UI */
+
   /* Dynamic Slogan styling */
   main ul li h4 {
     color: var(--uiText);
@@ -133,7 +134,7 @@ body {
   }
 
   header {
-    z-index: 100;
+    z-index: 5;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
@@ -177,6 +178,7 @@ body {
 
 #card-container {
   position: relative;
+  z-index: -1;
 }
 
 .search-card {
@@ -199,10 +201,10 @@ body {
 
 .map-card {
     margin: 30px auto 30px 30px;
-    width: 80%;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 100px;
+    z-index: -1;
+    width: 30%;
+    position: fixed;
+    top: 75px;
 }
 
 .card-title {
