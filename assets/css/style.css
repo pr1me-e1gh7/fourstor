@@ -12,13 +12,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Footer */
+/* === FOOTER === */
   /* Footer Box */
   .footer-bar {
     background-color:var(--navBkgd);
     border: solid;
     border-width: 1px;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     text-align: center;
     width: 300px;
   }
@@ -34,7 +34,7 @@ body {
   }  
 
 
-/* MAIN UI */
+/* === MAIN UI === */
 
   /* Dynamic Slogan styling */
   main ul li h4 {
@@ -97,7 +97,7 @@ body {
   }    
 
 
-/* MOVING BACKGROUND v1 */
+/* === MOVING BACKGROUND v1 === */
   .wrapper {
     opacity: 80%;
     overflow: hidden;
@@ -107,7 +107,8 @@ body {
   .sliding-background {
     /* Images Src = https://www.pexels.com */
     background: repeat-x;
-    height: 1000px;
+    /* originally 1000px */
+    height: 100vh;
     width: 6000px;
     animation: slide linear infinite;
     animation-duration: 20s;
@@ -123,7 +124,7 @@ body {
   }
 
 
-/* NAVBAR */  
+/* === NAVBAR === */  
   /* Navbar buttons */
   .navButtons {
     background-color: var(--navButton);
@@ -174,7 +175,7 @@ body {
   }    
 
 
-/* === search result cards === */
+/* === SEARCH RESULT CARDS === */
 
 #card-container {
   position: relative;
@@ -238,9 +239,14 @@ body {
     object-fit: cover; 
     min-width: 250px;
     width: 250px;
-    height: auto;
+    height: 300px;
 }
 
+.search-page {
+  margin-bottom: 100px;
+}
+
+/* LIKE BUTTONS */
 
 .button-like {
   border: 2px solid #8a8a8a;
@@ -313,6 +319,8 @@ body {
   color: #fefefe;
 }
 
+/* TEXT INPUT VALIDATION */
+
 .invalid {
   border: 2px solid red;
 }
@@ -322,3 +330,55 @@ body {
   color: red;
 }
 
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1023px) {
+  #card-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 135%;
+  }
+  
+  .search-card {
+    margin: 30px auto;
+  }
+
+  .card-image {
+    display: none;
+}
+  
+  .map-card {
+    margin: 30px auto;
+    width: 80%;
+    height: 80%;
+    position: static;
+    top: 75px;
+  }
+
+  .refresh-btn {
+    position: static;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .top-bar-left, .top-bar-right {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .top-bar-left {
+    margin-top: 50px;
+  }
+
+  .top-bar-right {
+    margin-top: 10px;
+  }
+
+}

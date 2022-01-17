@@ -38,14 +38,7 @@ let yelpApiLocation = "fairfax";
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
 
-
-    fetch(`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
-        headers: {
-            'Authorization': `Bearer ${yelpApiKey}`,
-            'Cache-Control': 'no-cache',
-        }
-
-    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
+    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}&limit=40`, {
         headers: {
             'Authorization': `Bearer ${yelpApiKey}`,
             'Cache-Control': 'no-cache', 
@@ -59,13 +52,6 @@ fetchBusiness = (category) => {
         renderSearchPage(data)
 
     })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            renderSearchPage(data)
-        })
 };
 
 // === Functions === \\
@@ -109,7 +95,7 @@ renderCards = (data) => {
 
         // TODO: add image link
         let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
-                        <img class="card-image" src="${businessImageLink}" alt="placeholder">
+                        <img class="card-image" src="${businessImageLink}" alt="Uh oh! Looks like this business doesn't have a photo">
                         <div class="flex-container flex-dir-column card-info">
                             <div class="card-divider align-justify">
                                 <a class="card-link" href="${businessUrl}">
@@ -266,15 +252,7 @@ randomNumber = (max) => {
     return Math.floor(Math.random() * max);
 }
 
-// === Init === \\
-init = () => {
-
-};
-
 // === Event Listeners === \\
-
-searchBtn.addEventListener('click', function (e) {
-
 
 //checks if user input matches predefined categories
 searchInput.addEventListener('input', function() {
@@ -302,7 +280,7 @@ searchBtn.addEventListener('click', function(e) {
     let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
     searchInput.value = '';
     fetchBusiness(searchValue);
-})
+});
 
 foodBtn.addEventListener('click', function () {
     fetchBusiness('food');
@@ -319,8 +297,3 @@ shopBtn.addEventListener('click', function () {
 servicesBtn.addEventListener('click', function () {
     fetchBusiness('homeservices');
 });
-
-// === Moving Background Array === \\
-
-
-init();

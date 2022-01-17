@@ -27,29 +27,20 @@
       <div class="top-bar" style="background-color:var(--navBkgd)">
 
         <div class="top-bar-left">
-
-          <ul class="menu" style="background-color:var(--navBkgd)">
-            <!-- location icon -->
-            <li><button id="location-btn" type="submit" class="button navButtons"><i class="fas fa-map-marked-alt"></i></button></li>
-            <!-- text input -->
-            <li><input id="search-input" type="text" placeholder="Shop title..." name="search"></li>
-            <!-- search icon -->
-
           <ul class="menu ui-widget" style="background-color:var(--navBkgd)">
             <li><button id="home-btn" type="submit" class="button navButtons" onClick="window.location.reload()"><i class="fas fa-home"></i></button></li>
             <li><button id="location-btn" type="submit" class="button navButtons"><i class="fas fa-map-marked-alt"></i></button></li>
             <li><input id="search-input" type="text" placeholder="Category" name="search"></li>
-
             <li><button id="search-btn" type="submit" class="button navButtons" style="margin-left: -32px;"><i class="fas fa-search"></i></button></li>
           </ul>
         </div>
 
+        <div class="nav-img">
+          <a href=".">
+            <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
+          </a>
+        </div>
         <div>
-          <div class="nav-img">
-            <a href=".">
-              <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
-            </a>
-          </div>
         </div>
 
         <div class="top-bar-right">
@@ -106,14 +97,14 @@
     </div>
   </main>
 
-  <!-- === SEARCH === -->
-  <div class="grid-container grid-container-cards fluid">
+  <!-- === SEARCH PAGE === -->
+  <div class="search-page grid-container grid-container-cards fluid">
     <div id="search-page-container" class="grid-x">
       <!-- CARD CONTAINER -->
-      <div id="card-container" class="cell small-7"></div> 
+      <div id="card-container" class="cell small-12 large-7"></div> 
       
       <!-- MAP CONTAINER -->
-      <div id="map-container" class="cell small-5"></div>
+      <div id="map-container" class="cell small-12 large-5"></div>
     </div>
 
   </div>
