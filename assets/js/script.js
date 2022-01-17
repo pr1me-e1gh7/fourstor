@@ -4,6 +4,8 @@ let animBackground = document.querySelector('.wrapper');
 let foodBtn = document.querySelector('#food-btn');
 let funBtn = document.querySelector('#fun-btn');
 let shopBtn = document.querySelector('#shop-btn');
+let cardContainer = document.querySelector('#card-container')
+let mapContainer = document.querySelector('#map-container')
 let servicesBtn = document.querySelector('#services-btn');
 let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
@@ -30,37 +32,35 @@ $( function() {
 
 // === API's === \\
 // google API
-let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
-let googleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
-let googleApiCoords = "&q="
+const googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
+const googleApiKey = "AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI"
+const googleApiCoords = "&q="
 
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
 const yelpApiKey = "YIugvR9QAxBbpeAbvG2mMthMtBYNpyF8T9RTWBTcVBqcCnf_H17UqVYCmU3KFC-PEQFFU90FZnTGhVs0UOS0YdEcU6iiwFPWERnkKd_8RXtkzsqs1aIbSMund0_gYXYx";
-let yelpApiLocation = localLocation;
 
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
 
-    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}&limit=40`, {
+    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${localLocation}&categories=${yelpApiCategory}&limit=40`, {
         headers: {
             'Authorization': `Bearer ${yelpApiKey}`,
             'Cache-Control': 'no-cache', 
         }
     })
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        renderSearchPage(data)
-    })
+        .then(response => response.json())
+        .then(data => renderSearchPage(data))
 };
 
 // === Functions === \\
 
 renderSearchPage = (data) => {
+    // clears the page
     mainEl.textContent = '';
     animBackground.textContent = '';
+    cardContainer.textContent = '';
+    mapContainer.textContent = '';
 
     // checks to see if the category returns any results
     if (data.total === 0) {
@@ -82,28 +82,25 @@ renderSearchPage = (data) => {
         return;
     }
 
-    // renders search cards
+    // renders search cards and map card
     renderCards(data);
     renderMapCard(data);
 
+    // creates a "re-roll" button with some classes
     let refreshBtn = document.createElement('button');
+    
     refreshBtn.classList.add('button');
     refreshBtn.classList.add('refresh-btn')
     refreshBtn.textContent = 'Give me 4 more!';
     refreshBtn.addEventListener('click', function () {
         renderSearchPage(data);
     })
-
-    let cardRow = document.querySelector('#card-container')
-
-    cardRow.appendChild(refreshBtn);
+    
+    cardContainer.appendChild(refreshBtn);
 }
 
 // loops through an array and returns a card for each business up to 4
 renderCards = (data) => {
-    let cardRow = document.querySelector('#card-container')
-    cardRow.textContent = '';
-
     for (let i = 0; i < 4; i++) {
         let random = randomNumber(data.businesses.length);
 
@@ -115,7 +112,6 @@ renderCards = (data) => {
         let businessCategory = data.businesses[random].categories[0].title;
         let businessPrice = data.businesses[random].price;
 
-        // TODO: add image link
         let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
                         <img class="card-image" src="${businessImageLink}" alt="Uh oh! Looks like this business doesn't have a photo">
                         <div class="flex-container flex-dir-column card-info">
@@ -142,7 +138,7 @@ renderCards = (data) => {
                         </div>
                     </div>`
 
-        cardRow.insertAdjacentHTML("beforeend", card);
+        cardContainer.insertAdjacentHTML("beforeend", card);
     }
 
     // handles map card
@@ -343,10 +339,9 @@ locationSubmitBtn.addEventListener('click', function(e) {
     e.preventDefault();
     let locationValue = locationInput.value.trim().split(' ').join('').toLowerCase();
     locationInput.value = '';
-    localStorage.setItem("userLocation", locationValue)
-    localLocation = localStorage.getItem("userLocation")
-    yelpApiLocation = localLocation
-    modal.style.visibility = "hidden"
+    localStorage.setItem("userLocation", locationValue);
+    localLocation = localStorage.getItem("userLocation");
+    modal.style.visibility = "hidden";
 })
 
 init();
