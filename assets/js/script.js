@@ -9,7 +9,7 @@ let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
 let locationBtn = document.querySelector('#location-btn')
 let modal = document.querySelector("#location-modal")
-let span = document.getElementsByClassName("close")[0];
+let modalClose = document.getElementsByClassName("close")[0];
 let locationSubmitBtn = document.querySelector('#location-submit-btn')
 let locationInput = document.querySelector('#location-input')
 
@@ -319,7 +319,7 @@ window.onclick = function(event) {
     }
 }
 
-span.onclick = function() {
+modalClose.onclick = function() {
     modal.style.visibility = "hidden";
 }
  
