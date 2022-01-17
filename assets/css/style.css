@@ -107,7 +107,8 @@ body {
   .sliding-background {
     /* Images Src = https://www.pexels.com */
     background: repeat-x;
-    height: 1000px;
+    /* originally 1000px */
+    height: 100vh;
     width: 6000px;
     animation: slide linear infinite;
     animation-duration: 20s;
