@@ -184,6 +184,7 @@ renderMapCard = (data, index) => {
 
     let mapRow = document.querySelector('#map-container')
     let businessName = data.businesses[cardIndex].name;
+    let businessNameAlias = data.businesses[cardIndex].alias;
     let businessAddressOne = data.businesses[cardIndex].location.display_address[0];
     let businessAddressTwo = data.businesses[cardIndex].location.display_address[1];
     let businessPhone = data.businesses[cardIndex].display_phone;
@@ -212,7 +213,7 @@ renderMapCard = (data, index) => {
                         style="border:0"
                         loading="lazy"
                         allowfullscreen
-                        src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${businessName}&q=${businessCoords.latitude},${businessCoords.longitude}">
+                        src="https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=${businessNameAlias}&q=${businessCoords.latitude},${businessCoords.longitude}">
                     </iframe>
                 </div>`
 
