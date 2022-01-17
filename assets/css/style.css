@@ -365,6 +365,21 @@ body {
   color: red;
 }
 
+/* Errors */
+
+.error-title, .error-subtitle {
+  text-align: center;
+}
+
+.error-title {
+  margin-top: 10%;
+  font-weight: 700;
+}
+
+.error-subtitle {
+  font-size: 150%;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 1023px) {
