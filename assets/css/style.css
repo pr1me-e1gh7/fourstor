@@ -134,6 +134,15 @@ body {
     color: var(--navHover);
   }
 
+  .custom-nav-bar {
+    background-color:var(--navBkgd);
+  }
+
+  .custom-search-btn {
+    margin-left: -32px;
+  }
+  
+
   header {
     z-index: 5;
     position: -webkit-sticky;
