@@ -7,6 +7,9 @@ let shopBtn = document.querySelector('#shop-btn');
 let servicesBtn = document.querySelector('#services-btn');
 let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
+let locationBtn = document.querySelector('#location-btn')
+let modal = document.querySelector("#location-modal")
+var span = document.getElementsByClassName("close")[0];
 
 // === Global Variables === \\
 
@@ -236,6 +239,14 @@ randomNumber = (max) => {
 //     })
 // });
 
+let localLocation = localStorage.
+
+
+
+
+
+
+
 // === Init === \\
 init = () => {
     
@@ -265,7 +276,20 @@ servicesBtn.addEventListener('click', function() {
     fetchBusiness('homeservices');
 });
 
-// === Moving Background Array === \\
+locationBtn.addEventListener ('click', function(){
 
+    modal.style.visibility = "visible"
+})
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.visibility = "hidden";
+    }
+  }
+
+  span.onclick = function() {
+    modal.style.visibility = "hidden";
+  }
+  
 
 init();
