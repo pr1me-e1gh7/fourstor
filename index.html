@@ -10,10 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/all.min.css">
-
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <!-- Our CSS -->
-
   <link rel="stylesheet" href="/assets/css/style.css">
   <title>fourSTOR | Your Small Shop Search Site</title>
   <link rel="shortcut icon" type="image/png" href="/assets/images/FourStor-icon.png">
@@ -24,14 +22,14 @@
   <header>
 
     <nav>
-      <div class="top-bar" style="background-color:var(--navBkgd)">
+      <div class="top-bar custom-nav-bar">
 
         <div class="top-bar-left">
           <ul class="menu ui-widget" style="background-color:var(--navBkgd)">
             <li><button id="home-btn" type="submit" class="button navButtons" onClick="window.location.reload()"><i class="fas fa-home"></i></button></li>
             <li><button id="location-btn" type="submit" class="button navButtons"><i class="fas fa-map-marked-alt"></i></button></li>
             <li><input id="search-input" type="text" placeholder="Category" name="search"></li>
-            <li><button id="search-btn" type="submit" class="button navButtons" style="margin-left: -32px;"><i class="fas fa-search"></i></button></li>
+            <li><button id="search-btn" type="submit" class="button navButtons custom-search-btn"><i class="fas fa-search"></i></button></li>
           </ul>
         </div>
 
@@ -44,7 +42,7 @@
         </div>
 
         <div class="top-bar-right">
-          <ul class="top-bar ul" style="background-color:var(--navBkgd);padding:8px">
+          <ul class="top-bar ul custom-top-bar" style="background-color:var(--navBkgd);padding:8px">
             <li><a href="#whatisfourstor">What is fourSTOR?</a></li>
             <li><a href="#aboutus">About Us</a></li>
             <li><a href="#contact">Contact</a></li>

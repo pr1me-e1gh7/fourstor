@@ -132,6 +132,14 @@ main .grid-x :hover {
   color: var(--navHover);
 }
 
+.custom-nav-bar {
+  background-color:var(--navBkgd);
+}
+
+.custom-search-btn {
+  margin-left: -32px;
+}
+
 header {
   z-index: 5;
   position: -webkit-sticky;
@@ -144,6 +152,7 @@ nav ul li {
   align-items: center;
   padding: 8px;
 }  
+
 /* Navbar logo */
 nav img {
   height: 2rem;
@@ -153,6 +162,7 @@ nav img {
   top: 20px;
   width: auto;
 }  
+
 /* Navbar styling */
 nav ul {
   display: block;
@@ -161,17 +171,18 @@ nav ul {
   margin-bottom: 0;
   margin-left: 0;
   min-width: 300px;
-}          
+}    
+
 /* Navbar text */
 nav a {
   color: var(--navText);
   text-decoration: none;
-}          
+}      
+
 /* Navbar text hover */
 nav a:hover {
   color: var(--navHover);
 }    
-
 
 /* === SEARCH RESULT CARDS === */
 
@@ -398,7 +409,7 @@ nav a:hover {
 
   .card-image {
     display: none;
-}
+  }
   
   .map-card {
     margin: 30px auto;
