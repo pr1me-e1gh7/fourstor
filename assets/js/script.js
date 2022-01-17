@@ -15,7 +15,7 @@ let locationInput = document.querySelector('#location-input')
 
 // === Global Variables === \\
 let localLocation = localStorage.getItem('userLocation')
-let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
+let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bicycles','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
 
 // handles the autocomplete functionality of the search input
 $( function() {
@@ -53,7 +53,6 @@ fetchBusiness = (category) => {
     })
     .then(function(data) {
         renderSearchPage(data)
-
     })
 };
 
@@ -62,6 +61,26 @@ fetchBusiness = (category) => {
 renderSearchPage = (data) => {
     mainEl.textContent = '';
     animBackground.textContent = '';
+
+    // checks to see if the category returns any results
+    if (data.total === 0) {
+        let errorDiv = document.createElement('div');
+        let errorText = document.createElement('h2');
+        let errorSubtext = document.createElement('p');
+
+        errorText.textContent = 'Oops! It seems that your search doesn\'t have any results';
+        errorSubtext.textContent = 'Try a different category term.';
+
+        errorText.classList.add('error-title');
+        errorSubtext.classList.add('error-subtitle')
+
+        errorDiv.appendChild(errorText);
+        errorDiv.appendChild(errorSubtext);
+
+        mainEl.appendChild(errorDiv);
+
+        return;
+    }
 
     // renders search cards
     renderCards(data);
