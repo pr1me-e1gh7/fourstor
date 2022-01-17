@@ -9,8 +9,10 @@ let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
 let locationBtn = document.querySelector('#location-btn')
 let modal = document.querySelector("#location-modal")
-var span = document.getElementsByClassName("close")[0];
-
+let span = document.getElementsByClassName("close")[0];
+let localLocation = localStorage.getItem('userLocation')
+let locationSubmitBtn = document.querySelector('#location-submit-btn')
+let locationInput = document.querySelector('#location-input')
 // === Global Variables === \\
 
 
@@ -24,7 +26,7 @@ let googleApiCoords = "&q="
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
 const yelpApiKey = "YIugvR9QAxBbpeAbvG2mMthMtBYNpyF8T9RTWBTcVBqcCnf_H17UqVYCmU3KFC-PEQFFU90FZnTGhVs0UOS0YdEcU6iiwFPWERnkKd_8RXtkzsqs1aIbSMund0_gYXYx";
-let yelpApiLocation = "fairfax";
+let yelpApiLocation = localLocation;
 
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
@@ -239,7 +241,6 @@ randomNumber = (max) => {
 //     })
 // });
 
-let localLocation = localStorage.
 
 
 
@@ -249,8 +250,15 @@ let localLocation = localStorage.
 
 // === Init === \\
 init = () => {
-    
-};
+    if (localLocation == null) {
+        modal.style.visibility = "visible"  
+    } else {
+        setLocation()
+    }};
+
+setLocation = () => {
+
+    }
 
 // === Event Listeners === \\
 searchBtn.addEventListener('click', function(e) {
@@ -277,7 +285,6 @@ servicesBtn.addEventListener('click', function() {
 });
 
 locationBtn.addEventListener ('click', function(){
-
     modal.style.visibility = "visible"
 })
 
@@ -287,9 +294,18 @@ window.onclick = function(event) {
     }
   }
 
-  span.onclick = function() {
+span.onclick = function() {
     modal.style.visibility = "hidden";
-  }
-  
+    }
+ 
+locationSubmitBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    let locationValue = locationInput.value.trim().split(' ').join('').toLowerCase();
+    locationInput.value = '';
+    localStorage.setItem("userLocation", locationValue)
+    localLocation = localStorage.getItem("userLocation")
+    yelpApiLocation = localLocation
+    modal.style.visibility = "hidden"
+})
 
 init();
