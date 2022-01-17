@@ -15,7 +15,7 @@ let locationInput = document.querySelector('#location-input')
 
 // === Global Variables === \\
 let localLocation = localStorage.getItem('userLocation')
-let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bicycles','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
+let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
 
 // handles the autocomplete functionality of the search input
 $( function() {
@@ -52,7 +52,6 @@ fetchBusiness = (category) => {
         return response.json();
     })
     .then(function(data) {
-        console.log(data);
         renderSearchPage(data)
 
     })
@@ -172,7 +171,6 @@ renderCards = (data) => {
 
 // * save for later 
 // saveBusiness = (data, index) => {
-//     console.log(data.businesses[index]);
 // }
 
 renderMapCard = (data, index) => {
@@ -241,7 +239,6 @@ checkPrice = (price) => {
 googleName = (name) => {
     let newName = name.replace(/\s+/g, '+').toLowerCase()
     let newerName = newName.replace(/'/g, '')
-    console.log(newerName)
     return newerName
 }
 
@@ -249,7 +246,6 @@ googleName = (name) => {
 googleCoords = (newCoords) => {
     let lat = newCoords.latitude
     let long = newCoords.longitude
-    // console.log(`${lat},${long}`)
     return `${lat},${long}`
 }
 
