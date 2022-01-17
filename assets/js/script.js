@@ -7,9 +7,14 @@ let shopBtn = document.querySelector('#shop-btn');
 let servicesBtn = document.querySelector('#services-btn');
 let searchInput = document.querySelector('#search-input');
 let searchBtn = document.querySelector('#search-btn');
-
+let locationBtn = document.querySelector('#location-btn')
+let modal = document.querySelector("#location-modal")
+let span = document.getElementsByClassName("close")[0];
+let locationSubmitBtn = document.querySelector('#location-submit-btn')
+let locationInput = document.querySelector('#location-input')
 
 // === Global Variables === \\
+let localLocation = localStorage.getItem('userLocation')
 let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bicycles','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
 
 // handles the autocomplete functionality of the search input
@@ -33,7 +38,7 @@ let googleApiCoords = "&q="
 // yelp API
 const yelpApiUrl = "https://api.yelp.com/v3/businesses/search?";
 const yelpApiKey = "YIugvR9QAxBbpeAbvG2mMthMtBYNpyF8T9RTWBTcVBqcCnf_H17UqVYCmU3KFC-PEQFFU90FZnTGhVs0UOS0YdEcU6iiwFPWERnkKd_8RXtkzsqs1aIbSMund0_gYXYx";
-let yelpApiLocation = "fairfax";
+let yelpApiLocation = localLocation;
 
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
@@ -252,6 +257,13 @@ randomNumber = (max) => {
     return Math.floor(Math.random() * max);
 }
 
+// === Init === \\
+init = () => {
+    if (localLocation == null) {
+        modal.style.visibility = "visible"  
+    }
+ };
+
 // === Event Listeners === \\
 
 //checks if user input matches predefined categories
@@ -297,3 +309,29 @@ shopBtn.addEventListener('click', function () {
 servicesBtn.addEventListener('click', function () {
     fetchBusiness('homeservices');
 });
+
+locationBtn.addEventListener ('click', function(){
+    modal.style.visibility = "visible"
+})
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.visibility = "hidden";
+    }
+}
+
+span.onclick = function() {
+    modal.style.visibility = "hidden";
+}
+ 
+locationSubmitBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    let locationValue = locationInput.value.trim().split(' ').join('').toLowerCase();
+    locationInput.value = '';
+    localStorage.setItem("userLocation", locationValue)
+    localLocation = localStorage.getItem("userLocation")
+    yelpApiLocation = localLocation
+    modal.style.visibility = "hidden"
+})
+
+init();
