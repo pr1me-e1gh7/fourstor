@@ -10,11 +10,23 @@ let searchBtn = document.querySelector('#search-btn');
 let locationBtn = document.querySelector('#location-btn')
 let modal = document.querySelector("#location-modal")
 let span = document.getElementsByClassName("close")[0];
-let localLocation = localStorage.getItem('userLocation')
 let locationSubmitBtn = document.querySelector('#location-submit-btn')
 let locationInput = document.querySelector('#location-input')
-// === Global Variables === \\
 
+// === Global Variables === \\
+let localLocation = localStorage.getItem('userLocation')
+let availableTags = ['active','aquariums','arts','axethrowing','auto','bagels','bakeries','baseballfields','basketballcourts','beaches','beautysvc','bicycles','bikerentals','bowling','breweries','cabinetry','carpenters','childcare','coffee','contractors','donuts','education','electricians','eventservices','farmersmarket','financialservices','fishing','fitness','food','foodtrucks','gardeners','golf','gyms','gymnastics','handyman','health','hiking','homecleaning','homeservices','horsebackriding','hotelstravel','icecream','jetskis','karate','kickboxing','landscaping','lasertag','localflavor','localservices','makerspaces','martialarts','massmedia','movietheaters','muaythai','museums','musicinstrumentservices','nightlife','nonprofit','paintball','painters','pets','plumbing','professional','publicart','publicservicesgovt','realestate','religiousorgs','restaurants','shopping','streetvendors','taekwondo','tea','tennis','yoga'];
+
+// handles the autocomplete functionality of the search input
+$( function() {
+    $( "#search-input" ).autocomplete({
+        source: function(request, response) {
+            var results = $.ui.autocomplete.filter(availableTags, request.term);
+            // limits number of autocomplete responses to 12
+            response(results.slice(0, 12));
+        }
+    });
+});
 
 
 // === API's === \\
@@ -31,18 +43,19 @@ let yelpApiLocation = localLocation;
 fetchBusiness = (category) => {
     let yelpApiCategory = category;
 
-    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}`, {
-    headers: {
-        'Authorization': `Bearer ${yelpApiKey}`,
-        'Cache-Control': 'no-cache', 
-    }
-})
+    fetch (`https://floating-headland-95050.herokuapp.com/${yelpApiUrl}location=${yelpApiLocation}&categories=${yelpApiCategory}&limit=40`, {
+        headers: {
+            'Authorization': `Bearer ${yelpApiKey}`,
+            'Cache-Control': 'no-cache', 
+        }
+    })
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         console.log(data);
         renderSearchPage(data)
+
     })
 };
 
@@ -60,7 +73,7 @@ renderSearchPage = (data) => {
     refreshBtn.classList.add('button');
     refreshBtn.classList.add('refresh-btn')
     refreshBtn.textContent = 'Give me 4 more!';
-    refreshBtn.addEventListener('click', function() {
+    refreshBtn.addEventListener('click', function () {
         renderSearchPage(data);
     })
 
@@ -73,7 +86,7 @@ renderSearchPage = (data) => {
 renderCards = (data) => {
     let cardRow = document.querySelector('#card-container')
     cardRow.textContent = '';
-    
+
     for (let i = 0; i < 4; i++) {
         let random = randomNumber(data.businesses.length);
 
@@ -84,17 +97,17 @@ renderCards = (data) => {
         let businessUrl = data.businesses[random].url;
         let businessCategory = data.businesses[random].categories[0].title;
         let businessPrice = data.businesses[random].price;
-    
+
         // TODO: add image link
         let card = `<div class="card search-card flex-container flex-dir-row" data-index="${random}">
-                        <img class="card-image" src="${businessImageLink}" alt="placeholder">
-                        <div class="flex-container flex-dir-column">
+                        <img class="card-image" src="${businessImageLink}" alt="Uh oh! Looks like this business doesn't have a photo">
+                        <div class="flex-container flex-dir-column card-info">
                             <div class="card-divider align-justify">
                                 <a class="card-link" href="${businessUrl}">
                                 <h4 class="card-title">${businessName}</h4>
                                 </a>    
-                                <button class="button button-like text-center">
-                                    <i class="fa fa-heart"></i>
+                                <button class="button button-like text-center" data-index="${random}">
+                                    <i class="fa fa-heart" data-index="${random}"></i>
                                 </button> 
                             </div>
                             <div class="card-content">
@@ -105,7 +118,6 @@ renderCards = (data) => {
                                 </a>
                                 </p>
                                 <p><span class="card-category">${businessCategory}</span> <span class="card-price">${checkPrice(businessPrice)}</span></p>
-                                <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
                                 <div>
                                 <button class="button" onclick="location.href='${businessUrl}';">Visit Business</button>
                                 </div>
@@ -116,43 +128,57 @@ renderCards = (data) => {
         cardRow.insertAdjacentHTML("beforeend", card);
     }
 
+    // handles map card
     let cardEl = document.querySelectorAll('.search-card')
 
     for (let i = 0; i < cardEl.length; i++) {
-        cardEl[i].addEventListener('click', function() {
+        cardEl[i].addEventListener('click', function (e) {
+            // ignore if like button is clicked
+            if (e.target.nodeName == "BUTTON" || e.target.nodeName == "I") {
+                return;
+            }
             let index = this.dataset.index;
             renderMapCard(data, index);
         })
     }
 
+    // handles map button
     let likeEl = document.querySelectorAll('.button-like')
 
     for (let i = 0; i < likeEl.length; i++) {
-    likeEl[i].addEventListener('click', function(e) {
-        
-        if (e.target.nodeName == "BUTTON") {
-            if(e.target.classList.contains("liked")) {
-                e.target.classList.remove("liked")
+        likeEl[i].addEventListener('click', function (e) {
+            if (e.target.nodeName == "BUTTON") {
+                if (e.target.classList.contains("liked")) {
+                    e.target.classList.remove("liked")
+                }
+                else {
+                    e.target.classList.add("liked")
+                }
             }
             else {
-                e.target.classList.add("liked")
+                if (e.target.parentNode.classList.contains("liked")) {
+                    e.target.parentNode.classList.remove("liked")
+                }
+                else {
+                    e.target.parentNode.classList.add("liked")
+                }
             }
-        }
-        else {
-            if(e.target.parentNode.classList.contains("liked")) {
-                e.target.parentNode.classList.remove("liked")
-            }
-            else {
-                e.target.parentNode.classList.add("liked")
-            }
-        }
-    })}
-    
+            let index = this.dataset.index;
+            // * save for later
+            // saveBusiness(data, index);
+        })
+    }
+
 }
+
+// * save for later 
+// saveBusiness = (data, index) => {
+//     console.log(data.businesses[index]);
+// }
 
 renderMapCard = (data, index) => {
     let cardIndex = index;
-    
+
     if (cardIndex === undefined || cardIndex === null) {
         cardIndex = document.querySelector('#card-container').firstChild.dataset.index;
     }
@@ -214,7 +240,7 @@ checkPrice = (price) => {
 // ==> This function gets the business name and replaces any blank spaces with + for the google link <==
 googleName = (name) => {
     let newName = name.replace(/\s+/g, '+').toLowerCase()
-    let newerName = newName.replace(/'/g,'')
+    let newerName = newName.replace(/'/g, '')
     console.log(newerName)
     return newerName
 }
@@ -231,56 +257,56 @@ randomNumber = (max) => {
     return Math.floor(Math.random() * max);
 }
 
-// ==> like change state function <== \\
-
-
-// $(function() {
-//   $('.button-like')
-//     .bind('click', function(event) {
-//       $(".button-like").toggleClass("liked");
-//     })
-// });
-
-
-
-
-
-
-
-
 // === Init === \\
 init = () => {
     if (localLocation == null) {
         modal.style.visibility = "visible"  
-    } else {
-        setLocation()
-    }};
-
-setLocation = () => {
-
     }
+ };
 
 // === Event Listeners === \\
+
+//checks if user input matches predefined categories
+searchInput.addEventListener('input', function() {
+        searchBtn.classList.remove('disabled');
+        searchBtn.disabled = false;
+})
+
 searchBtn.addEventListener('click', function(e) {
+
     e.preventDefault();
+
+    if (!availableTags.includes(searchInput.value)) {
+        // stop function from running and give feedback
+        searchBtn.classList.add('disabled');
+        searchBtn.disabled = true;
+        searchInput.value = '';
+        searchInput.placeholder = 'Enter a valid category';
+        searchInput.classList.add('invalid');
+        return;
+    }
+
+    searchInput.placeholder = 'Category';
+    searchInput.classList.remove('invalid');
+
     let searchValue = searchInput.value.trim().split(' ').join('').toLowerCase();
     searchInput.value = '';
     fetchBusiness(searchValue);
-})
+});
 
-foodBtn.addEventListener('click', function() {
+foodBtn.addEventListener('click', function () {
     fetchBusiness('food');
 });
 
-funBtn.addEventListener('click', function() {
+funBtn.addEventListener('click', function () {
     fetchBusiness('active');
 });
 
-shopBtn.addEventListener('click', function() {
+shopBtn.addEventListener('click', function () {
     fetchBusiness('shopping');
 });
 
-servicesBtn.addEventListener('click', function() {
+servicesBtn.addEventListener('click', function () {
     fetchBusiness('homeservices');
 });
 
@@ -292,11 +318,11 @@ window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.visibility = "hidden";
     }
-  }
+}
 
 span.onclick = function() {
     modal.style.visibility = "hidden";
-    }
+}
  
 locationSubmitBtn.addEventListener('click', function(e) {
     e.preventDefault();

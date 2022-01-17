@@ -5,39 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- Montserrat Font Family src -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
-<!-- Foundation Compressed Web Link CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
-<!-- Font Awesome Icon Src -->
   <link rel="stylesheet" href="/assets/css/all.min.css">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <!-- Our CSS -->
+
   <link rel="stylesheet" href="/assets/css/style.css">
-<!-- Website Title -->
   <title>fourSTOR | Your Small Shop Search Site</title>
-<!-- Website Icon -->
   <link rel="shortcut icon" type="image/png" href="/assets/images/FourStor-icon.png">
 </head>
 
 <body>
-  <!-- Navbar -->
+  <!-- === NAVBAR === -->
   <header>
+
     <nav>
       <div class="top-bar" style="background-color:var(--navBkgd)">
+
         <div class="top-bar-left">
-          <ul class="menu" style="background-color:var(--navBkgd)">
+          <ul class="menu ui-widget" style="background-color:var(--navBkgd)">
+            <li><button id="home-btn" type="submit" class="button navButtons" onClick="window.location.reload()"><i class="fas fa-home"></i></button></li>
             <li><button id="location-btn" type="submit" class="button navButtons"><i class="fas fa-map-marked-alt"></i></button></li>
-            <li><input id="search-input" type="text" placeholder="Shop title..." name="search"></li>
+            <li><input id="search-input" type="text" placeholder="Category" name="search"></li>
             <li><button id="search-btn" type="submit" class="button navButtons" style="margin-left: -32px;"><i class="fas fa-search"></i></button></li>
           </ul>
         </div>
-        <div>
-          <div class="nav-img">
+
+        <div class="nav-img">
+          <a href=".">
             <img src="/assets/images/fourSTOR-banner-clearbkgd.png">
-          </div>
+          </a>
         </div>
+        <div>
+        </div>
+
         <div class="top-bar-right">
           <ul class="top-bar ul" style="background-color:var(--navBkgd);padding:8px">
             <li><a href="#whatisfourstor">What is fourSTOR?</a></li>
@@ -45,11 +50,14 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
+
       </div>
+
     </nav>
+
   </header>
   
-  <!-- Page Background -->
+  <!-- === BACKGROUND === -->
   <div class="wrapper">
     <div class="sliding-background">
       <img id="movingbkgd" src="/assets/images/backgrounds/bkgd01.jpg" style="max-height:100%;">
@@ -65,120 +73,48 @@
     </div>
   </div>
   
-  <!-- Main UI for the page -->
+  <!-- === MAIN UI === -->
   <main>
     <ul style="list-style-type: none;">
       <li class="logo-img"><img src="/assets/images/FourStor-logo-clearbkgd.png"></li>
-      <!-- h4 slogan will be dynamic -->
       <li><h4>Your "Mom and Pop" Search Engine</h4></li>
     </ul>
+
     <div class="grid-container grid-container-UI">
+
+      <div class="grid-container-UI-bkgd"></div>
+
       <div class="grid-x">
         <a id="food-btn" class="grid-container-card" href="#food"><i class="fas fa-coffee"></i></i></i></a>
         <a id="fun-btn" class="grid-container-card" href="#fun"><i class="fas fa-bowling-ball"></i></a>
       </div>
+
       <div class="grid-x">
         <a id="shop-btn" class="grid-container-card" href="#shops"><i class="fas fa-store" style="font-size: 50px;"></i></a>
         <a id="services-btn" class="grid-container-card" href="#services"><i class="fas fa-taxi"></i></a>
       </div>
+      
     </div>
   </main>
 
-  <div class="grid-container grid-container-cards fluid">
+  <!-- === SEARCH PAGE === -->
+  <div class="search-page grid-container grid-container-cards fluid">
     <div id="search-page-container" class="grid-x">
+      <!-- CARD CONTAINER -->
+      <div id="card-container" class="cell small-12 large-7"></div> 
       
-      <!-- === CARD CONTAINER === -->
-      <div id="card-container" class="cell small-7">
-       <!-- placeholder card 1
-        <div class="card search-card flex-container flex-dir-row">
-          <img class="card-image" src="https://images.unsplash.com/photo-1508615263227-c5d58c1e5821?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmJxfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="placeholder">
-          <div class="flex-container flex-dir-column">
-              <div class="card-divider align-justify">
-                  <a class="card-link" href="">
-                  <h4 class="card-title">BBQ Store</h4>
-                  </a>
-                  <button class="button button-like text-center">
-                    <i class="fa fa-heart"></i>
-                  </button>    
-              </div>
-
-              <div class="card-content">
-                  <p>
-                  <span class="card-star-rating">⭐⭐⭐⭐</span><span class="card-review-count">268</span>
-                  <a class="card-yelp-link" href="${businessUrl}">
-                      <img src="https://s3-media0.fl.yelpcdn.com/assets/public/cookbook.yji-7ef71bf77a3395dd1b44f31e354a2dbd.svg" alt="yelp logo">
-                  </a>
-                  </p>
-                  <p><span class="card-category">BBQ</span> <span class="card-price">$$</span></p>
-                  <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
-                  <div>
-                  <button class="button" onclick="location.href='${businessUrl}';">Visit Business</button>
-                  </div>
-              </div>
-          </div>
-        </div> -->
-        <!-- placeholder card 2 -->
-        <!--<div class="card search-card flex-container flex-dir-row">
-          <img class="card-image" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFzdGF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="placeholder">
-          <div class="flex-container flex-dir-column">
-              <div class="card-divider">
-                  <a class="card-link" href="">
-                  <h4 class="card-title">Pasta-pasta, Yummy-yummy</h4>
-                  </a>    
-              </div>
-
-              <div class="card-content">
-                  <p>
-                  <span class="card-star-rating">⭐⭐⭐⭐⭐</span><span class="card-review-count">1064</span>
-                  <a class="card-yelp-link" href="${businessUrl}">
-                      <img src="https://s3-media0.fl.yelpcdn.com/assets/public/cookbook.yji-7ef71bf77a3395dd1b44f31e354a2dbd.svg" alt="yelp logo">
-                  </a>
-                  </p>
-                  <p><span class="card-category">Italian</span> <span class="card-price">$$$</span></p>
-                  <p class="card-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At dolorum ut laborum cumque dicta nisi culpa, cupiditate, voluptatibus ullam, autem repudiandae laudantium aperiam. Aliquid.</p>
-                  <div>
-                  <button class="button" onclick="location.href='${businessUrl}';">Visit Business</button>
-                  </div>
-              </div>
-          </div>
-        </div> -->
-        </div> 
-      
-      <!-- === MAP CONTAINER === -->
-      <div id="map-container" class="cell small-5">
-        <!-- <div class="card map-card">
-          <div class="card-divider">
-            <h4 class="card-title">Maryland Zoo in Baltimore</h4>
-          </div>
-          <div class="card-content grid-x">
-            <div class="cell small-6 address">
-              <h5>Address</h5>
-              <p>1 Safari Pl <br>Baltimore 21217</p>
-            </div>
-            <div class="cell small-6 phone">
-              <h5>Phone</h5>
-              <p>(410) 396-7102</p>
-            </div>
-            
-          </div>
-          <iframe
-              width="100%"
-              height="700"
-              style="border:0"
-              loading="lazy"
-              allowfullscreen
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDMVp6faydAIqb_c4tsvCUatzjBl-8_opI&q=39.3227,-76.6498">
-          </iframe>
-        </div> -->
-      </div>
+      <!-- MAP CONTAINER -->
+      <div id="map-container" class="cell small-12 large-5"></div>
     </div>
 
   </div>
   
   <footer class="grid-container">
     <div class="footer-bar">
+
       <h4>Powered By Yelp and Google Maps</h4>
       <h5>Copyright <i class="far fa-copyright"></i> 2022</h5>
+
     </div>
   </footer>
 
@@ -191,9 +127,10 @@
       <button class="button expanded" id="location-submit-btn">Submit</button>
     </div>
   </div>
-  
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 
