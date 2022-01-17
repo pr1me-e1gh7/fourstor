@@ -28,7 +28,6 @@ $( function() {
     });
 });
 
-
 // === API's === \\
 // google API
 let googleApiUrl = "https://www.google.com/maps/embed/v1/place?key="
