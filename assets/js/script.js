@@ -243,6 +243,7 @@ returnStars = (rating) => {
     return stars;
 }
 
+// checks to see if a price is given
 checkPrice = (price) => {
     if (price === undefined) {
         price = '';
@@ -279,8 +280,8 @@ init = () => {
 
 //checks if user input matches predefined categories
 searchInput.addEventListener('input', function() {
-        searchBtn.classList.remove('disabled');
-        searchBtn.disabled = false;
+    searchBtn.classList.remove('disabled');
+    searchBtn.disabled = false;
 })
 
 searchBtn.addEventListener('click', function(e) {
@@ -342,6 +343,7 @@ locationSubmitBtn.addEventListener('click', function(e) {
     localStorage.setItem("userLocation", locationValue);
     localLocation = localStorage.getItem("userLocation");
     modal.style.visibility = "hidden";
+    location.reload();
 })
 
 init();

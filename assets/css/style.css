@@ -13,166 +13,164 @@ body {
 }
 
 /* === FOOTER === */
-  /* Footer Box */
-  .footer-bar {
-    background-color:var(--navBkgd);
-    border: solid;
-    border-width: 1px;
-    margin: 0 auto 50px auto;
-    text-align: center;
-    width: 300px;
-  }
-  /* Footer Text */
-  .footer-bar h4,
-  .footer-bar h5 {
-    color: var(--navText);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    line-height: 10px;
-    list-style-type: none;
-    margin-top: 7px;
-  }  
+/* Footer Box */
+.footer-bar {
+  background-color:var(--navBkgd);
+  border: solid;
+  border-width: 1px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  width: 300px;
+}
+/* Footer Text */
+.footer-bar h4,
+.footer-bar h5 {
+  color: var(--navText);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 10px;
+  list-style-type: none;
+  margin-top: 7px;
+}  
 
 
 /* === MAIN UI === */
 
-  /* Dynamic Slogan styling */
-  main ul li h4 {
-    color: var(--uiText);
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    text-align: center;
-  }  
-  /* fourSTOR Main Logo styling */
-  .logo-img {
-    height: auto;
-    left: 50%;
-    margin-left: -80px;
-    margin-top: 25px;
-    position: relative;
-    width: 10rem;
-  }   
-  /* Main UI Box */
-  .grid-container-UI {
-    border: solid;
-    border-radius: 20%;
-    border-width: 2px;
-    color: var(--uiText);
-    height: 500px;
-    margin-bottom: 25px;
-    position: relative;
-    width: 500px;
-  }
-  /* Main UI Box Bkgd */
-  .grid-container-UI-bkgd {
-    background-color: rgba(0, 0, 0, 0.315);
-    border-radius: 20%;
-    backdrop-filter: blur(10px);
-    height: 500px;
-    margin-left: -16px;
-    margin-top: -2px;
-    position: absolute;
-    width: 500px;
-    z-index: -1;
-  }
-  /* Main UI links */
-  .grid-container-card {
-    border: solid;
-    border-radius: 100%;
-    border-width: 3px;
-    color: var(--uiText);
-    font-size: 50px;
-    font-weight: bold;
-    height: 200px;
-    margin-left: 5%;
-    margin-top: 6.75%;
-    padding-top: 60px;
-    position: relative;
-    text-align: center;
-    width: 200px;
-  }    
-  /* Main UI link hover */
-  main .grid-x :hover {
-    color: var(--uiHover);
-  }    
+/* Dynamic Slogan styling */
+main ul li h4 {
+  color: var(--uiText);
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  text-align: center;
+}  
+/* fourSTOR Main Logo styling */
+.logo-img {
+  height: auto;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: 25px;
+  position: relative;
+  width: 10rem;
+}   
+/* Main UI Box */
+.grid-container-UI {
+  border: solid;
+  border-radius: 20%;
+  border-width: 2px;
+  color: var(--uiText);
+  height: 500px;
+  margin-bottom: 25px;
+  position: relative;
+  width: 500px;
+}
+/* Main UI Box Bkgd */
+.grid-container-UI-bkgd {
+  background-color: rgba(0, 0, 0, 0.315);
+  border-radius: 20%;
+  backdrop-filter: blur(10px);
+  height: 500px;
+  margin-left: -16px;
+  margin-top: -2px;
+  position: absolute;
+  width: 500px;
+  z-index: -1;
+}
+/* Main UI links */
+.grid-container-card {
+  border: solid;
+  border-radius: 100%;
+  border-width: 3px;
+  color: var(--uiText);
+  font-size: 50px;
+  font-weight: bold;
+  height: 200px;
+  margin-left: 5%;
+  margin-top: 6.75%;
+  padding-top: 60px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+}    
+/* Main UI link hover */
+main .grid-x :hover {
+  color: var(--uiHover);
+}    
 
 
 /* === MOVING BACKGROUND v1 === */
-  .wrapper {
-    opacity: 80%;
-    overflow: hidden;
-    position: absolute;
-    z-index: -2;
+.wrapper {
+  opacity: 80%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -2;
+}
+.sliding-background {
+  background: repeat-x;
+  height: 100vh;
+  width: 20000px;
+  animation: slide linear infinite;
+  animation-duration: 220s;
+  
+}
+@keyframes slide {
+  0% {
+      transform: translate3d(0, 0, 0);
   }
-  .sliding-background {
-    /* Images Src = https://www.pexels.com */
-    background: repeat-x;
-    /* originally 1000px */
-    height: 100vh;
-    width: 6000px;
-    animation: slide linear infinite;
-    animation-duration: 20s;
-    
+  100% {
+      transform: translate3d(-20000px, 0, 0);
   }
-  @keyframes slide {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-2000px, 0, 0);
-    }
-  }
+}
 
 
 /* === NAVBAR === */  
-  /* Navbar buttons */
-  .navButtons {
-    background-color: var(--navButton);
-    color: var(--navText);
-  }
-  .navButtons :hover {
-    color: var(--navHover);
-  }
+/* Navbar buttons */
+.navButtons {
+  background-color: var(--navButton);
+  color: var(--navText);
+}
+.navButtons :hover {
+  color: var(--navHover);
+}
 
-  header {
-    z-index: 5;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0px;
-  }
+header {
+  z-index: 5;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
 
-  /* Navbar link styling */
-  nav ul li {
-    align-items: center;
-    padding: 8px;
-  }  
-  /* Navbar logo */
-  nav img {
-    height: 2rem;
-    left: 50%;
-    margin-left: -75px;
-    position: absolute;
-    top: 20px;
-    width: auto;
-  }  
-  /* Navbar styling */
-  nav ul {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    list-style-type: none;
-    margin-bottom: 0;
-    margin-left: 0;
-    min-width: 300px;
-  }          
-  /* Navbar text */
-  nav a {
-    color: var(--navText);
-    text-decoration: none;
-  }          
-  /* Navbar text hover */
-  nav a:hover {
-    color: var(--navHover);
-  }    
+/* Navbar link styling */
+nav ul li {
+  align-items: center;
+  padding: 8px;
+}  
+/* Navbar logo */
+nav img {
+  height: 2rem;
+  left: 50%;
+  margin-left: -75px;
+  position: absolute;
+  top: 20px;
+  width: auto;
+}  
+/* Navbar styling */
+nav ul {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-left: 0;
+  min-width: 300px;
+}          
+/* Navbar text */
+nav a {
+  color: var(--navText);
+  text-decoration: none;
+}          
+/* Navbar text hover */
+nav a:hover {
+  color: var(--navHover);
+}    
 
 
 /* === SEARCH RESULT CARDS === */
@@ -196,29 +194,29 @@ body {
 }
 
 .search-card:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .map-card {
-    margin: 30px auto 30px 30px;
-    width: 30%;
-    height: 80%;
-    position: fixed;
-    top: 75px;
+  margin: 30px auto 30px 30px;
+  width: 30%;
+  height: 80%;
+  position: fixed;
+  top: 75px;
 }
 
 .card-title {
-    font-weight: 700;
-    font-size: 180%;
+  font-weight: 700;
+  font-size: 180%;
 }
 
 .card-link,
 .card-link:visited {
-    color: black;
+  color: black;
 }
 
 .card-link:hover {
-    color: rgb(47, 47, 47);
+  color: rgb(47, 47, 47);
 }
 
 .card-info {
@@ -226,20 +224,20 @@ body {
 }
 
 .card-content {
-    padding: 20px;
+  padding: 20px;
 }
 
 .card-category {
-    background: #7ad2da;
-    padding: 6px 8px;
-    border-radius: 8px;
+  background: #7ad2da;
+  padding: 6px 8px;
+  border-radius: 8px;
 }
 
 .card-image {
-    object-fit: cover; 
-    min-width: 250px;
-    width: 250px;
-    height: 300px;
+  object-fit: cover; 
+  min-width: 250px;
+  width: 250px;
+  height: 300px;
 }
 
 .search-page {
