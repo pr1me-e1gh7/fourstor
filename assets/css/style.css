@@ -36,7 +36,10 @@ body {
 
 /* === MAIN UI === */
 
-/* Dynamic Slogan styling */
+.custom-slogan-banner {
+  list-style-type: none;
+}
+/* Slogan styling */
 main ul li h4 {
   color: var(--uiText);
   font-family: 'Montserrat', sans-serif;
@@ -109,8 +112,14 @@ main .grid-x :hover {
   height: 100vh;
   width: 20000px;
   animation: slide linear infinite;
-  animation-duration: 220s;
-  
+  animation-duration: 220s;  
+}
+.movingbkgd-img1 {
+  max-height:100%;
+}
+.movingbkgd-imgs {
+  max-height:100%;
+  margin:-5px;
 }
 @keyframes slide {
   0% {
@@ -161,6 +170,7 @@ nav img {
   position: absolute;
   top: 20px;
   width: auto;
+  background-color:var(--navBkgd);
 }  
 
 /* Navbar styling */
